@@ -23,7 +23,7 @@
         <a href="#Profil">Profil</a>
     </div>
     <br>
-    <div class="center" > <h2> Offres favorites : </h2> </div>
+    <div class="center" > <h2> Statistique des étudiants : </h2> </div>
     <br>
     <br>
     <br>
