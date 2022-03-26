@@ -32,10 +32,18 @@ div.d {
   }
 
 .c {
-    background-color: bisque;
+    background-color: rgb(225, 245, 255);
     border: 1px solid black;
 }
 
 a:link {
     text-decoration:none;
+}
+
+body{
+    background-image: url(bleu.jpg);
+}
+
+h4{
+    margin-left: 20px;
 }

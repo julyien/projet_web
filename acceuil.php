@@ -41,7 +41,7 @@ foreach($dbh->query('SELECT * from profil') as $row){
 </head>
 <body>
     <div class="topnav">
-        <a class="active"><img src="logo.png" width="45px"/></a>
+        <a><img src="logo.png" width="45px"/></a>
         <a>
             <input type="text" name="text" class="search" placeholder="Recherchez ici!">
             <input type="submit" name="submit" class="submit" value="Search">
