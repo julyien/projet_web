@@ -23,7 +23,9 @@
         <a href="#Messagerie">Messagerie</a>
         <a href="profil.php">Profil</a>
     </div>
-    <div class="a"><button type="button">Se déconnecter</button></div>
+    <div class=a>
+        <a href="logout.php">Se deconnecter</a>
+    </div>
     <br>
     <br>
     <br>
@@ -33,7 +35,6 @@
     <div class="couleur">
     <pre><button><a href="Gestion_entreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
     <pre><button><a href="Gestion_offre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
-    <pre><button><a href="Gestion_delegue.php"      style="text-decoration:none">Gestion des délégués   </a></button></pre>
     <pre><button><a href="Gestion_etudiants.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
     <pre><button><a href="Gestion_pilotes.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
     </div>

@@ -27,12 +27,10 @@
         <a href="logout.php">Se deconnecter</a>
     </div>
     <br>
-    <div class="center" > <h2> Offres favorites : </h2> </div>
+    <div class="d" > <h2> Offres favorites : </h2> </div>
     <br>
     <br>
     <br>
-    <br>
-
     <div class="c col-6 mx-auto"  >
         <div class="brd">
             <div class="a"><button type="button">Enlever des favoris</button></div>
