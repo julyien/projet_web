@@ -31,11 +31,11 @@
     <div class="row">
     <div class="a col-3">
     <div class="couleur">
-    <pre><button><a href="Gestion_entreprise.php" style="text-decoration:none">Gestion des entreprises</a></button></pre>
-    <pre><button><a href="Gestion_offre.php" style="text-decoration:none">Gestion des offres</a></button></pre>
-    <pre><button><a href="Gestion_delegue.php" style="text-decoration:none">Gestion des délégués</a></button></pre>
-    <pre><button><a href="Gestion_etudiants.php" style="text-decoration:none">Gestion des étudiants</a></button></pre>
-    <pre><button><a href="Gestion_pilotes.php" style="text-decoration:none">Gestion des pilotes</a></button></pre>
+    <pre><button><a href="Gestion_entreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
+    <pre><button><a href="Gestion_offre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
+    <pre><button><a href="Gestion_delegue.php"      style="text-decoration:none">Gestion des délégués   </a></button></pre>
+    <pre><button><a href="Gestion_etudiants.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
+    <pre><button><a href="Gestion_pilotes.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
     </div>
     </div>
     <div class="c col-6">

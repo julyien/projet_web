@@ -57,10 +57,12 @@ foreach($dbh->query('SELECT * from profil') as $row){
     <div class=a>
         <a href="logout.php">Se deconnecter</a>
     </div>
+    <br>
     <div class="d">
         <h2>Bienvenue</h2>
     </div>
-    <div class="d">
+    <br>
+    <div class="c col-6 mx-auto">
         <div class="brd">
             <div class="a"><button type="button">Favoris</button></div>
             <pre>Offre de Stages :</pre>
@@ -73,7 +75,7 @@ foreach($dbh->query('SELECT * from profil') as $row){
         </div>
     </div>
     <br>
-    <div class="d">
+    <div class="c col-6 mx-auto">
         <div class="brd">
             <div class="a"><button type="button">Favoris</button></div>
             <pre>Offre de Stages :</pre>

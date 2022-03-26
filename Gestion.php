@@ -1,5 +1,3 @@
-
-
 <!doctype = html>
 <head>
     <title>Gestion du pilote</title>
