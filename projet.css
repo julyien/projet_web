@@ -33,4 +33,9 @@ div.d {
 
 .c {
     background-color: bisque;
+    border: 1px solid black;
+}
+
+a:link {
+    text-decoration:none;
 }

@@ -1,4 +1,33 @@
+<?php
 
+session_start();
+$dbh = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
+
+
+if ( !empty($_POST)) {
+   
+
+$Pseudo= $_POST['identifiant_profil'];
+$MDP= $_POST['password_profil'];
+$x=0;
+
+
+
+foreach($dbh->query('SELECT * from profil') as $row){
+
+    if ($Pseudo == $row['identifiant_profil'] && $MDP == $row['password_profil']){
+        $_SESSION['identifiant_profil'] = $Pseudo['identifiant_profil'];
+         header('location:acceuil.php');
+         exit;
+    }
+
+    else{
+        echo 'Identifiant ou mot de passe incorrect.';
+    }
+        
+}
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="acceuil.css" rel="Stylesheet" type="text/css"/>
+    <link href="projet.css" rel="Stylesheet" type="text/css"/>
 </head>
 <body>
     <div class="topnav">
@@ -28,10 +57,10 @@
     <div class=a>
         <a href="logout.php">Se deconnecter</a>
     </div>
-    <div class="c">
+    <div class="d">
         <h2>Bienvenue</h2>
     </div>
-    <div class="c">
+    <div class="d">
         <div class="brd">
             <div class="a"><button type="button">Favoris</button></div>
             <pre>Offre de Stages :</pre>
@@ -44,7 +73,7 @@
         </div>
     </div>
     <br>
-    <div class="c">
+    <div class="d">
         <div class="brd">
             <div class="a"><button type="button">Favoris</button></div>
             <pre>Offre de Stages :</pre>
