@@ -49,24 +49,24 @@
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#Acceuil">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="/acceuil.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Stages">Stages</a>
+                        <a class="nav-link" href="/stage_etudiant">Stages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Souhaits">Souhaits</a>
+                        <a class="nav-link" href="/ListeDeSouhait.php">Souhaits</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Gestion_offre.php">Gestion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Notifications">Notifications</a>
+                        <a class="nav-link" href="/notification.php">Notifications</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#Profil">Profil</a>
+                        <a class="nav-link" href="/profil.php">Profil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/logout.php">Se déconnecter</a>
