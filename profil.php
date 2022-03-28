@@ -1,15 +1,14 @@
 <?php
+  session_start(); 
+  include('connexionDB.php'); 
 
-session_start();
-$dbh = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
+    $getid = intval($_SESSION['id_profil']);
 
 
-$afficher_profil = $dbh->query("SELECT * 
-    FROM profil
-    WHERE id_profil = 10", 
-  array($_SESSION['id_profil']));
-  
-  $afficher_profil = $afficher_profil->fetch(); 
+    $req = $DB->query("SELECT * FROM profil INNER JOIN centre_formation ON profil.id_centre = centre_formation.id_centre WHERE id_profil = ? ", array($getid));
+    $row = $req->fetch();
+
+
 
 ?>
 
@@ -22,8 +21,8 @@ $afficher_profil = $dbh->query("SELECT *
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="projet.css" rel="Stylesheet" type="text/css"/>
-    <script src="https://kit.fontawesome.com/d37d50e548.js" crossorigin="anonymous"></script>
+    <link href="profil.css" rel="Stylesheet" type="text/css"/>
+    <script src="https://kit.fontawesome.com/d37d50e548.js"></script>
     <title>Mon Profil</title>
 </head>
 <body>
@@ -47,15 +46,15 @@ $afficher_profil = $dbh->query("SELECT *
     <br>
     <br>
     <div class="d col-4">
-    <i class="fa-solid fa-circle-user"></i>Bienvenue <?php echo $_SESSION['identifiant_profil']; ?> !
+    <i class="fa-solid fa-circle-user"></i>Bienvenue <?php echo $row['prenom_profil']; ?> !
     <br>
     <br>
     </div>
     <div class="row">
         <div class="col-4 mx-auto">
-            <pre><i class="fa-solid fa-location-dot"></i>  Centre</pre>
-            <pre><i class="fa-solid fa-graduation-cap"></i> Promotion</pre>
-            <pre><i class="fa-solid fa-percent"></i>  Statistique</pre>
+            <pre><i class="fa-solid fa-location-dot"></i>  Centre <?php echo $row['nom_centre']; ?></pre>
+            <pre><i class="fa-solid fa-graduation-cap"></i> Promotion <?php echo $row['promotion_profil']; ?></pre>
+            <pre><i class="fa-solid fa-percent"></i>  Statistique </pre>
         </div>
         <div class="col-7 mx-auto">
             <pre><i class="fa-solid fa-file-pdf"></i><input type="file" accept="application/pdf,application/vnd.ms-excel">  Ajouter un cv</td></pre>
