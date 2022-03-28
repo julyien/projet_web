@@ -42,14 +42,14 @@ $dbname = "projetweb";
 ?>
     <nav class="navbar navbar-expand navbar-dark topnav">
         <div class="container-fluid">
-            <a class="active"><img src="logo.png" width="45"></a>
+            <a class="active" href="/acceuil.php"><img src="logo.png" alt="logo" width="70"></a>
             <div class="collapse navbar-collapse ms-2">
                 <form action="search.php" method="POST">
                     <input class="form-control" type="text" name="identifiant_profil" placeholder="Search" aria-label="Search">
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="acceuil.php">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="/acceuil.php">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/stage_etudiant.php">Stages</a>
