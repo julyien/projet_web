@@ -41,7 +41,7 @@
     </div>
     <div class="c col-6">
             <br>
-            <pre>Créer un pilote       <a type="button" href="Create.php">Créer</a></pre>
+            <pre>Créer un pilote       <a type="button" href="CreatePilote.php">Créer</a></pre>
             <pre>Supprimer un pilote   <a type="button" href="Delete.php">Supprimer</a></pre>
             <pre>Modifier un pilote    <a type="button" href="Update.php">Modifier</a></pre>
             <br>

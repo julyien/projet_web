@@ -21,7 +21,7 @@
      $identifiant_profil = $_POST['identifiant_profil'];
      $password_profil = $_POST['password_profil'];
      $id_centre = $_POST['id_centre'];
-     $id_role = 2;
+     $id_role = 1;
 
 
 
