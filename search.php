@@ -13,13 +13,13 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 
 <div class="profil-container">
 <?php
-    if (isset($_POST['submit-search'])){
+    if (isset($_POST['identifiant_profil'])){
         $search = mysqli_real_escape_string($conn,$_POST['identifiant_profil']);
         $sql = "SELECT * FROM profil WHERE nom_profil LIKE '%$search%' OR  identifiant_profil LIKE '%$search%' OR promotion_profil LIKE '%$search%'";
         $result = mysqli_query($conn, $sql);
         $queryResult = mysqli_num_rows($result);
 
-        echo "Il y ".$queryResult." resultats";
+        echo "Il y a ".$queryResult." resultats";
 
         if ($queryResult > 0){
             while ($row = mysqli_fetch_assoc($result)){
