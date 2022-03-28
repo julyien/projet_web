@@ -41,7 +41,7 @@
                         <a class="nav-link active" aria-current="page" href="/acceuil.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/stage_etudiant">Stages</a>
+                        <a class="nav-link" href="/stage_etudiant.php">Stages</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/ListeDeSouhait.php">Souhaits</a>
