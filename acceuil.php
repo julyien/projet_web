@@ -65,33 +65,13 @@
             </div>
         </div>
     </nav>
+    <br><br><br><br>
     <div class="d">
-        <h6>Bienvenue <?php echo $row['prenom_profil']; ?></h6>
+        <h1>Bienvenue <?php echo $row['prenom_profil']; ?></h1>
     </div>
-    <div class="c col-6 mx-auto">
-        <div class="brd">
-            <div class="a"><button type="button">Favoris</button></div>
-            <pre>Offre de Stages :</pre>
-            <pre>Nom entreprise</pre>
-            <pre>Nom du poste</pre>
-            <pre>Localisation</pre>
-            <div class="a">
-                <button type="button">Postuler</button> <button type="button">En savoir plus</button>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="c col-6 mx-auto">
-        <div class="brd">
-            <div class="a"><button type="button">Favoris</button></div>
-            <pre>Offre de Stages :</pre>
-            <pre>Nom entreprise</pre>
-            <pre>Nom du poste</pre>
-            <pre>Localisation</pre>
-            <div class="a">
-                <button type="button">Postuler</button> <button type="button">En savoir plus</button>
-            </div>
-        </div>
+    <br><br><br>
+    <div class="d">
+    <img src="logo.png" width="400px">
     </div>
 </body>
 
