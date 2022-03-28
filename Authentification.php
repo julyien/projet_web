@@ -67,15 +67,15 @@ if(!empty($_POST)){
 <title>Connexion</title>
 </head>
 <body>
+<div class="d"> <h2>Bienvenue sur JVPN veuillez vous connecter.</h2></div>
 <div class="container">
 <div class="row">
 <div class="col-7">
 <div class="mt-4">
 <div class=a>
-<h4>Bienvenue sur JVPN.</h4>
-<h4>Veuillez vous connecter.</h4>
-<pre></pre>
-<h3 class="text-primary">Identification</h3>
+<br>
+<h3 class="d">Identification</h3>
+<pre>
 <form method = "post">
 <?php
 if (isset($er_pseudo)){
@@ -95,14 +95,16 @@ if (isset($er_mdp)){
 Mot de passe: <input type="password" placeholder="mot de passe" name="password_profil" value="<?php if(isset($mdp)){ echo $mdp; }?>" required>
 <input type="submit" name="connexion">
 </form>
+</pre>
 <a href="https://www.mentionslegales.net">Mentions légales</a>
 </div>
 </div>
 </div>
 <div class="col-5">
-<div class="mt-4">
-<div class=c>
-<img src="logo.png" width="300px"/>
+    <div class="d">
+<br><br>
+<img src="logo.png" width="260px"/>
+</div>
 </div>
 </div>
 </div>
