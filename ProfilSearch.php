@@ -46,7 +46,7 @@
     <br>
     <br>
     <div class="d col-4">
-    <i class="fa-solid fa-circle-user"></i>Bienvenue <?php echo $row['prenom_profil']; ?> !
+    <i class="fa-solid fa-circle-user"></i><?php echo $row['prenom_profil']; ?> !
     <br>
     <br>
     </div>
