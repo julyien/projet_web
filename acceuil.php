@@ -13,6 +13,7 @@
 <html lang="en">
 
 <head>
+    <title> JVPN </title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +32,7 @@
 <body>
     <nav class="navbar navbar-expand navbar-dark topnav">
         <div class="container-fluid">
-            <a class="active"><img src="logo.png" width="45"></a>
+            <a class="active"><img src="logo.png" alt="logo" width="45"></a>
             <div class="collapse navbar-collapse ms-2">
                 <form action="search.php" method="POST">
                     <input class="form-control" type="text" name="identifiant_profil" placeholder="Search" aria-label="Search">
@@ -71,7 +72,7 @@
     </div>
     <br><br><br>
     <div class="d">
-    <img src="logo.png" width="400px">
+    <img src="logo.png" alt="logo" width="400">
     </div>
 </body>
 

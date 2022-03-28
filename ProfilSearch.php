@@ -26,23 +26,42 @@
     <title>Mon Profil</title>
 </head>
 <body>
-    <div class="topnav">
-        <a class="active"><img src="logo.png" width="45px"/></a>
-        <a>
-            <input type="text" name="text" class="search" placeholder="Recherchez ici!">
-            <input type="submit" name="submit" class="submit" value="Search">
-        </a>
-        <a href="acceuil.php">Accueil</a>
-        <a href="#Stages">Stages</a>
-        <a href="ListeDeSouhait.php">Souhaits</a>
-        <a href="Gestion_entreprise.php">Gestion</a>
-        <a href="notification.php">Notifications</a>
-        <a href="#Messagerie">Messagerie</a>
-        <a href="#Profil">Profil</a>
-        <div class=a>
-        <a href="logout.php">Se deconnecter</a>
-    </div>
-    </div>
+<nav class="navbar navbar-expand navbar-dark topnav">
+        <div class="container-fluid">
+            <a class="active"><img src="logo.png" width="45"></a>
+            <div class="collapse navbar-collapse ms-2">
+                <form action="search.php" method="POST">
+                    <input class="form-control" type="text" name="identifiant_profil" placeholder="Search" aria-label="Search">
+                </form>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/acceuil.php">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/stage_etudiant.php">Stages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ListeDeSouhait.php">Souhaits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Gestion_offre.php">Gestion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/notification.php">Notifications</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profil.php">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout.php">Se déconnecter</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
     <br>
     <br>
     <div class="d col-4">
