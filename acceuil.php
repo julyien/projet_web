@@ -1,3 +1,33 @@
+<?php
+
+session_start();
+$dbh = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
+
+
+if ( !empty($_POST)) {
+   
+
+$Pseudo= $_POST['identifiant_profil'];
+$MDP= $_POST['password_profil'];
+$x=0;
+
+
+
+foreach($dbh->query('SELECT * from profil') as $row){
+
+    if ($Pseudo == $row['identifiant_profil'] && $MDP == $row['password_profil']){
+        $_SESSION['identifiant_profil'] = $Pseudo['identifiant_profil'];
+         header('location:acceuil.php');
+         exit;
+    }
+
+    else{
+        echo 'Identifiant ou mot de passe incorrect.';
+    }
+        
+}
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,36 +47,12 @@
       </script>
 </head>
 <body>
-<?php
-
-
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projetweb";
-  
-  $conn = mysqli_connect($server,$username,$password,$dbname);
-
-            
-        $sql = "SELECT * FROM profil";
-        $result = mysqli_query($conn,$sql);
-        $queryResults = mysqli_num_rows($result);
-
-        if ($queryResults > 0){
-            while ($row = mysqli_fetch_assoc($result)){
-                echo "<div class='profil-box'>
-                </div>";
-            }
-        }
- 
-
-?>
     <div class="topnav">
-        <a class="active"><img src="logo.png" width="45px"/></a>
-        <form action="search.php" method="POST">
-            <input type="text" name="identifiant_profil" class="search" placeholder="Recherchez ici!" value="<?php if(isset($Search)){ echo $Search; }?>">
-            <input type="submit" name="submit-search" class="submit" value="Search">
-        </form>
+        <a><img src="logo.png" width="45px"/></a>
+        <a>
+            <input type="text" name="text" class="search" placeholder="Recherchez ici!">
+            <input type="submit" name="submit" class="submit" value="Search">
+        </a>
         <a href="#Acceuil">Accueil</a>
         <a href="#Stages">Stages</a>
         <a href="ListeDeSouhait.php">Souhaits</a>
