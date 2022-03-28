@@ -49,7 +49,7 @@ $dbname = "projetweb";
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/acceuil.php">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="acceuil.php">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/stage_etudiant.php">Stages</a>
