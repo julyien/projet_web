@@ -27,24 +27,27 @@ if(!empty($_POST)){
         
         $req = $DB->query("SELECT *
         FROM profil
-        INNER JOIN centre_formation ON profil.id_centre = centre_formation.id_centre
         WHERE identifiant_profil = ? AND password_profil = ?",
         array($Pseudo, $mdp));
-        $req = $req->fetch();
+        $row = $req->fetch();
         
+        if (is_null($row['id_profil'])){
+            $valid = false;
+            $er_pseudo = "Le mail ou le mot de passe est incorrecte";
+       }
         
         
         
         
         if ($valid){
-            $_SESSION['id_profil'] = $req['id_profil']; // id de l'utilisateur unique pour les requêtes futures
-            $_SESSION['nom_profil'] = $req['nom_profil'];
-            $_SESSION['prenom_profil'] = $req['prenom_profil'];
-            $_SESSION['identifiant_profil'] = $req['identifiant_profil'];
-            $_SESSION['password_profil'] = $req['password_profil'];
-            $_SESSION['promotion_profil'] = $req['promotion_profil'];
-            $_SESSION['id_centre'] = $req['id_centre'];
-            $_SESSION['nom_centre'] = $req['nom_centre'];
+            $_SESSION['id_profil'] = $row['id_profil']; // id de l'utilisateur unique pour les requêtes futures
+            $_SESSION['nom_profil'] = $row['nom_profil'];
+            $_SESSION['prenom_profil'] = $row['prenom_profil'];
+            $_SESSION['identifiant_profil'] = $row['identifiant_profil'];
+            $_SESSION['password_profil'] = $row['password_profil'];
+            $_SESSION['promotion_profil'] = $row['promotion_profil'];
+            $_SESSION['id_centre'] = $row['id_centre'];
+            $_SESSION['nom_centre'] = $row['nom_centre'];
             
             header('Location: acceuil.php');
             exit;
