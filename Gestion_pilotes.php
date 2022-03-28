@@ -22,9 +22,9 @@
         <a href="#notification.php">Notifications</a>
         <a href="#Messagerie">Messagerie</a>
         <a href="profil.php">Profil</a>
-    </div>
-    <div class=a>
+        <div class=a>
         <a href="logout.php">Se deconnecter</a>
+    </div>
     </div>
     <br>
     <br>

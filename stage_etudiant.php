@@ -9,18 +9,22 @@
     <link href="projet.css" rel="Stylesheet" type="text/css"/>
 </head>
 <body>
-    <div class="topnav">
+<div class="topnav">
         <a class="active"><img src="logo.png" width="45px"/></a>
         <a>
             <input type="text" name="text" class="search" placeholder="Recherchez ici!">
             <input type="submit" name="submit" class="submit" value="Search">
         </a>
-        <a href="#Acceuil">Accueil</a>
+        <a href="acceuil.php">Accueil</a>
         <a href="#Stages">Stages</a>
-        <a href="#Souhaits">Souhaits</a>
-        <a href="#Notifications">Notifications</a>
+        <a href="ListeDeSouhait.php">Souhaits</a>
+        <a href="Gestion_entreprise.php">Gestion</a>
+        <a href="notification.php">Notifications</a>
         <a href="#Messagerie">Messagerie</a>
         <a href="#Profil">Profil</a>
+        <div class=a>
+        <a href="logout.php">Se deconnecter</a>
+    </div>
     </div>
     <br>
     <br>
