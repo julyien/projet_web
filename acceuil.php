@@ -1,3 +1,17 @@
+<?php
+  session_start(); 
+  include('connexionDB.php'); 
+
+    $getid = intval($_SESSION['id_profil']);
+
+
+    $req = $DB->query("SELECT * FROM profil INNER JOIN centre_formation ON profil.id_centre = centre_formation.id_centre WHERE id_profil = ? ", array($getid));
+    $row = $req->fetch();
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,29 +30,8 @@
       </script>
 </head>
 <body>
-<?php
-
-
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projetweb";
-  
-  $conn = mysqli_connect($server,$username,$password,$dbname);
-
-            
+<?php  
         $sql = "SELECT * FROM profil";
-        $result = mysqli_query($conn,$sql);
-        $queryResults = mysqli_num_rows($result);
-
-        if ($queryResults > 0){
-            while ($row = mysqli_fetch_assoc($result)){
-                echo "<div class='profil-box'>
-                </div>";
-            }
-        }
- 
-
 ?>
     <div class="topnav">
         <a class="active"><img src="logo.png" width="45px"/></a>
@@ -60,7 +53,7 @@ $dbname = "projetweb";
     </div>
     </div>
     <div class="d">
-        <h6>Bienvenue <?php echo $row['prenom_profil']; ?> </h6>
+        <h1>Bienvenue <?php echo $row['prenom_profil']; ?> </h1>
     </div>
 </body>
 </html>

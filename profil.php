@@ -35,13 +35,9 @@
 <body>
 <?php
 
-
-
-
             
         $sql = "SELECT * FROM profil";
 
- 
 
 ?>
     <div class="topnav">
