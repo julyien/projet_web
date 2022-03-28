@@ -63,7 +63,21 @@ if ( !empty($_POST)) {
 <head>
 <meta charset="utf-8">
 <link   href="css/bootstrap.min.css" rel="stylesheet">
-<script src="js/bootstrap.min.js"></script>
+    <script src=
+        "https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+  
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        type="text/javascript">
+    </script>
+      
+    <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
 </head>
 
 <body>
@@ -72,11 +86,14 @@ if ( !empty($_POST)) {
 <div>
 <h3>Modifier une entreprise</h3>
 </div>
-<form class="form-horizontal" action="Update_Entreprise.php?id_profil=<?php echo $id_entreprise?>" method="post">
+<form class="form-horizontal" action="Update_Entreprise.php?id_entreprise=<?php echo $id_entreprise?>" method="post">
 <div class="control-group <?php echo !empty($IdError)?'error':'';?>">
 <label class="control-label">ID Entreprise</label>
 <div class="controls">
-<input name="id_entreprise" type="int"  placeholder="id_entreprise" value="<?php echo !empty($id_entreprise)?$id_entreprise:'';?>">
+<input type='text' name="id_entreprise" 
+                        id='id_entreprise' class='form-control'
+                        placeholder='Entrer id entreprise'
+                        onkeyup="GetDetail(this.value)" value="<?php echo !empty($id_entreprise)?$id_entreprise:'';?>">
 <?php if (!empty($IdError)): ?>
     <span class="help-inline"><?php echo $IdError;?></span>
     <?php endif; ?>
@@ -84,7 +101,9 @@ if ( !empty($_POST)) {
     <div class="control-group <?php echo !empty($NomError)?'error':'';?>">
     <label class="control-label">Nom Entreprise</label>
     <div class="controls">
-    <input name="nom_entreprise" type="text"  placeholder="nom_entreprise" value="<?php echo !empty($nom_entreprise)?$nom_entreprise:'';?>">
+    <input type="text" name="nom_entreprise" 
+                        id="nom_entreprise" class="form-control"
+                        placeholder='Nom entreprise' value="<?php echo !empty($nom_entreprise)?$nom_entreprise:'';?>">
     <?php if (!empty($NomError)): ?>
         <span class="help-inline"><?php echo $NomError;?></span>
         <?php endif; ?>
@@ -93,7 +112,9 @@ if ( !empty($_POST)) {
         <div class="control-group <?php echo !empty($CentreError)?'error':'';?>">
         <label class="control-label">Centre d'activité</label>
         <div class="controls">
-        <input name="centre_activite_entreprise" type="text" placeholder="centre_activite_entreprise" value="<?php echo !empty($centre_activite_entreprise)?$centre_activite_entreprise:'';?>">
+        <input type="text" name="centre_activite_entreprise" 
+                        id="centre_activite_entreprise" class="form-control"
+                        placeholder='centre activite entreprise' value="<?php echo !empty($centre_activite_entreprise)?$centre_activite_entreprise:'';?>">
         <?php if (!empty($CentreError)): ?>
             <span class="help-inline"><?php echo $CentreError;?></span>
             <?php endif;?>
@@ -102,7 +123,9 @@ if ( !empty($_POST)) {
             <div class="control-group <?php echo !empty($StagiaireError)?'error':'';?>">
             <label class="control-label">Nombre de stagiaire</label>
             <div class="controls">
-            <input name="nombre_stagiaireCESI_entreprise" type="text"  placeholder="nombre_stagiaireCESI_entreprise" value="<?php echo !empty($nombre_stagiaireCESI_entreprise)?$nombre_stagiaireCESI_entreprise:'';?>">
+            <input type="text" name="nombre_stagiaireCESI_entreprise" 
+                        id="nombre_stagiaireCESI_entreprise" class="form-control"
+                        placeholder='nombre stagiaire CESI entreprise' value="<?php echo !empty($nombre_stagiaireCESI_entreprise)?$nombre_stagiaireCESI_entreprise:'';?>">
             <?php if (!empty($StagiaireError)): ?>
                 <span class="help-inline"><?php echo $StagiaireError;?></span>
                 <?php endif;?>
@@ -113,7 +136,40 @@ if ( !empty($_POST)) {
                 <a class="btn" href="Gestion.php">Back</a>
                 </div>
                 </form>
-                </div>
-                </div> 
-                </body>
-                </html>
+            </div>
+        </div> 
+<script>
+  
+  function GetDetail(str) {
+      if (str.length == 0) {
+          document.getElementById("nom_entreprise").value = "";
+          document.getElementById("centre_activite_entreprise").value = "";
+          document.getElementById("nombre_stagiaireCESI_entreprise").value = "";
+          return;
+      }
+      else {
+
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function () {
+              if (this.readyState == 4 && 
+                      this.status == 200) {
+                  var myObj = JSON.parse(this.responseText);
+
+                    
+                  document.getElementById
+                      ("nom_entreprise").value = myObj[0];
+                  document.getElementById
+                      ("centre_activite_entreprise").value = myObj[1];
+                  document.getElementById
+                      ("nombre_stagiaireCESI_entreprise").value = myObj[2];
+              }
+          };
+
+          xmlhttp.open("GET", "autoaddEntreprise.php?id_entreprise=" + str, true);
+            
+          xmlhttp.send();
+      }
+  }
+  </script>
+    </body>
+</html>

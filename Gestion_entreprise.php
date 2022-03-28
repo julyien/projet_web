@@ -91,9 +91,9 @@ $dbname = "projetweb";
     </div>
     <div class="c col-6">
             <br>
-            <pre>Créer une entreprise       <a type="button" href="Create_Entreprise.php">Créer</a></pre>
-            <pre>Supprimer une entreprise   <a type="button" href="Delete_Entreprise.php">Supprimer</a></pre>
-            <pre>Modifier une entreprise    <a type="button" href="Update_Entreprise.php">Modifier</a></pre>
+            <pre>Créer une entreprise       <a type="button" href="CreateEntreprise.php">Créer</a></pre>
+            <pre>Supprimer une entreprise   <a type="button" href="DeleteEntreprise.php">Supprimer</a></pre>
+            <pre>Modifier une entreprise    <a type="button" href="UpdateEntreprise.php">Modifier</a></pre>
             <br>
         </div>
     </div>
