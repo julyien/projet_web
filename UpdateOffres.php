@@ -15,6 +15,7 @@ if ( !empty($_POST)) {
     $RemunError = null;
     $DateError= null;
     $PlaceError = null;
+    $descriptionError = null;
     $IdentifiantError = null;
     
     // keep track post values
@@ -24,11 +25,12 @@ if ( !empty($_POST)) {
     $base_remuneration_offre = $_POST['base_remuneration_offre'];
     $date_offre = $_POST['date_offre'];
     $nombre_place_offre = $_POST['nombre_place_offre'];
+    $description_offre = $_POST['description_offre'];
     $id_entreprise = $_POST['id_entreprise'];
     
     // validate input
     $valid = true;
-    
+
     if (empty($id_offre)) {
         $IdError = "Donner l'ID de l'offre";
         $valid = false;
@@ -58,19 +60,26 @@ if ( !empty($_POST)) {
         $PlaceError = "Donner le nombre de places de l'offre";
         $valid = false;
     }
+
+    if (empty($description_offre)) {
+        $descriptionError = "yes";
+        $valid = false;
+    }
     
     if (empty($id_entreprise)) {
         $IdentifiantError = "Donner l'id de l'entreprise";
         $valid = false;
     }
     
+
+    
     // update data
     if ($valid) {
         $sql = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh = "UPDATE `offre` SET entreprise_offre =  ?, duree_offre = ?, base_remuneration_offre = ?, date_offre = ?, nombre_place_offre = ?, id_entreprise = ? WHERE id_offre = ?";
+        $dbh = "UPDATE `offre` SET entreprise_offre =  ?, duree_offre = ?, base_remuneration_offre = ?, date_offre = ?, nombre_place_offre = ?,description_offre = ?, id_entreprise = ? WHERE id_offre = ?";
         $q = $sql->prepare($dbh);   
-        $q->execute(array( $entreprise_offre,$duree_offre,$base_remuneration_offre, $date_offre, $nombre_place_offre, $id_entreprise,$id_offre )); 
+        $q->execute(array( $entreprise_offre,$duree_offre,$base_remuneration_offre, $date_offre, $nombre_place_offre, $description_offre, $id_entreprise,$id_offre )); 
         header('Location: Gestion_offre.php');
     }
 }
@@ -144,6 +153,14 @@ if ( !empty($_POST)) {
                         <?php endif;?>
                         </div>
                         </div>
+                        <div class="control-group <?php echo !empty($description_offre)?'error':'';?>">
+                        <label class="control-label">Description de l'offre</label>
+                        <div class="controls">
+                            <input name="description_offre" type="int"  placeholder="description_offre" value="<?php echo !empty($description_offre)?$description_offre:'';?>">
+                            <?php if (!empty($descriptionError)): ?>
+                                <span class="help-inline"><?php echo $descriptionError;?></span>
+                            <?php endif;?>
+                        </div>
                         <div class="control-group <?php echo !empty($IdentifiantError)?'error':'';?>">
                         <label class="control-label">Entreprise</label>
                         <div class="controls">
@@ -155,7 +172,7 @@ if ( !empty($_POST)) {
                             </div>
                             <div>
                             <button type="submit" class="btn btn-success">Update</button>
-                            <a class="btn" href="Gestion.php">Back</a>
+                            <a class="btn" href="Gestion_Offres.php">Back</a>
                             </div>
                             </form>
                             </div>

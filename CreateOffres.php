@@ -11,6 +11,7 @@
      $remunerationError = null;
      $dateError = null;
      $nombreplaceError = null;
+     $descriptionError = null;
      $identrpriseError = null;
 
      
@@ -23,6 +24,7 @@
      $remuneration_offre = $_POST['base_remuneration_offre'];
      $date_offre = $_POST['date_offre'];
      $nombreplace_offre = $_POST['nombre_place_offre'];
+     $description_offre = $_POST['description_offre'];
      $identreprise_offre = $_POST['id_entreprise'];
      
 
@@ -57,6 +59,11 @@
         $valid = false;
     }
 
+    if (empty($description_offre)) {
+        $descriptionError = "Donner la description de l'offre";
+        $valid = false;
+    }
+
     if (empty($identreprise_offre)) {
         $identrpriseError = "Donner l'id du centre de formation";
         $valid = false;
@@ -65,9 +72,9 @@
      // insert data
      if ($valid) {
          $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-         $dbh = "INSERT INTO offre (entreprise_offre,duree_offre,base_remuneration_offre, date_offre ,nombre_place_offre,id_entreprise) values(?, ?, ?, ?, ?,?) ";
+         $dbh = "INSERT INTO offre (entreprise_offre,duree_offre,base_remuneration_offre, date_offre ,nombre_place_offre,description_offre,id_entreprise) values(?, ?, ?, ?, ?,?,?) ";
          $q = $sql->prepare($dbh);
-         $q->execute(array($entreprise_offre,$duree_offre,$remuneration_offre, $date_offre, $nombreplace_offre,$identreprise_offre));
+         $q->execute(array($entreprise_offre,$duree_offre,$remuneration_offre, $date_offre, $nombreplace_offre,$description_offre,$identreprise_offre));
          header('Location: Gestion_offre.php');
      }
  }
@@ -115,11 +122,20 @@
                         </div>
                       </div>
                       <div class="control-group <?php echo !empty($nombreplaceError)?'error':'';?>">
-                        <label class="control-label">Nombre de place pour l'offre l'offre </label>
+                        <label class="control-label">Nombre de place pour l'offre </label>
                         <div class="controls">
                             <input name="nombre_place_offre" type="int"  placeholder="nombre_place_offre" value="<?php echo !empty($nombreplace_offre)?$nombreplace_offre:'';?>">
                             <?php if (!empty($nombreplaceError)): ?>
                                 <span class="help-inline"><?php echo $nombreplaceError;?></span>
+                            <?php endif;?>
+                        </div>
+                      </div>
+                      <div class="control-group <?php echo !empty($description_offre)?'error':'';?>">
+                        <label class="control-label">Description de l'offre</label>
+                        <div class="controls">
+                            <input name="description_offre" type="int"  placeholder="description_offre" value="<?php echo !empty($description_offre)?$description_offre:'';?>">
+                            <?php if (!empty($descriptionError)): ?>
+                                <span class="help-inline"><?php echo $descriptionError;?></span>
                             <?php endif;?>
                         </div>
                       </div>
