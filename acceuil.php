@@ -60,32 +60,7 @@ $dbname = "projetweb";
     </div>
     </div>
     <div class="d">
-        <h2>Bienvenue</h2>
-    </div>
-    <div class="c col-6 mx-auto">
-        <div class="brd">
-            <div class="a"><button type="button">Favoris</button></div>
-            <pre>Offre de Stages :</pre>
-            <pre>Nom entreprise</pre>
-            <pre>Nom du poste</pre>
-            <pre>Localisation</pre>
-            <div class="a">
-                <button type="button">Postuler</button> <button type="button">En savoir plus</button>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="c col-6 mx-auto">
-        <div class="brd">
-            <div class="a"><button type="button">Favoris</button></div>
-            <pre>Offre de Stages :</pre>
-            <pre>Nom entreprise</pre>
-            <pre>Nom du poste</pre>
-            <pre>Localisation</pre>
-            <div class="a">
-                <button type="button">Postuler</button> <button type="button">En savoir plus</button>
-            </div>
-        </div>
+        <h6>Bienvenue <?php echo $row['prenom_profil']; ?> </h6>
     </div>
 </body>
 </html>
