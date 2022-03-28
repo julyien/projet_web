@@ -23,6 +23,13 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="profil.css" rel="Stylesheet" type="text/css"/>
     <script src="https://kit.fontawesome.com/d37d50e548.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        //if browser support service worker
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('sw.js');
+        };
+      </script>
     <title>Mon Profil</title>
 </head>
 <body>
