@@ -88,6 +88,8 @@ if ( !empty($_POST)) {
 <html>
   
 <head>
+<meta charset="utf-8">
+<link   href="css/bootstrap.min.css" rel="stylesheet">
     <script src=
         "https://code.jquery.com/jquery-3.2.1.min.js">
     </script>
@@ -205,9 +207,7 @@ if ( !empty($_POST)) {
                 </form>
             </div>
         </div> 
-    </body>
-</html>
-    <script>
+<script>
   
         function GetDetail(str) {
             if (str.length == 0) {
@@ -246,12 +246,11 @@ if ( !empty($_POST)) {
                     }
                 };
   
-                xmlhttp.open("GET", "autoadd.php?id_offre=" + str, true);
+                xmlhttp.open("GET", "autoaddOffre.php?id_offre=" + str, true);
                   
                 xmlhttp.send();
             }
         }
     </script>
 </body>
-  
 </html>
