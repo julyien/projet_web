@@ -90,8 +90,8 @@
             <pre><i class="fa-solid fa-percent"></i>  Statistique </pre>
         </div>
         <div class="col-7 mx-auto">
-            <pre><i class="fa-solid fa-file-pdf"></i><input type="file" accept="application/pdf,application/vnd.ms-excel">  Ajouter un cv</td></pre>
-            <pre><i class="fa-solid fa-file-pdf"></i><input type="file" accept="application/pdf,application/vnd.ms-excel">  Ajouter une lettre de motivation</td></pre>
+            <pre><i class="fa-solid fa-file-pdf"></i><input type="file" accept="application/pdf,application/vnd.ms-excel">  Ajouter un cv</pre>
+            <pre><i class="fa-solid fa-file-pdf"></i><input type="file" accept="application/pdf,application/vnd.ms-excel">  Ajouter une lettre de motivation</pre>
         </div>
     </div>
 </body>
