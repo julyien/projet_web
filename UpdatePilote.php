@@ -16,7 +16,6 @@ if ( !empty($_POST)) {
     $PswError= null;
     $CentreError = null;
     $IdentifiantError = null;
-    $roleError = null;
     
     // keep track post values
     $id_profil = $_POST['id_profil'];
@@ -26,7 +25,7 @@ if ( !empty($_POST)) {
     $identifiant_profil = $_POST['identifiant_profil'];
     $password_profil = $_POST['password_profil'];
     $id_centre = $_POST['id_centre'];
-    $id_role = $_POST['role_profil'];
+    $id_role = 1;
     
     // validate input
     $valid = true;
@@ -66,10 +65,6 @@ if ( !empty($_POST)) {
         $valid = false;
     }
 
-    if (empty($id_role)) {
-        $roleError = "Donner l'id du role du profil";
-        $valid = false;
-    }
     
     // update data
     if ($valid) {
@@ -78,7 +73,7 @@ if ( !empty($_POST)) {
         $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, identifiant_profil = ?, password_profil = ?, id_centre = ?, id_role WHERE id_profil = ?";
         $q = $sql->prepare($dbh);   
         $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil, $id_centre,$id_role,$id_profil )); 
-        header('Location: Gestion_etudiants.php');
+        header('Location: GestionPilote.php');
     }
 }
 ?>
@@ -109,8 +104,8 @@ if ( !empty($_POST)) {
 <body>
 <div>
 <div>
-<h3>Modifier un profil</h3>
-<form class="form-horizontal" action="Update.php?id_profil=<?php echo $id_profil?>" method="post">
+<h3>Modifier un pilote</h3>
+<form class="form-horizontal" action="UpdatePilote.php?id_profil=<?php echo $id_profil?>" method="post">
 <div class="control-group <?php echo !empty($IdError)?'error':'';?>">
 <label class="control-label">ID Profil</label>
 <div class="controls">
@@ -187,20 +182,10 @@ if ( !empty($_POST)) {
                             <span class="help-inline"><?php echo $CentreError;?></span>
                             <?php endif;?>
                             </div>
-                            <div class="control-group <?php echo !empty($roleError)?'error':'';?>">
-                                <label class="control-label">ID du role du profil</label>
-                                <div class="controls">
-                                <input type="text" name="id_role" 
-                                id="id_role" class="form-control"
-                                placeholder='ID du role' value="<?php echo !empty($id_role)?$id_role:'';?>">
-                                <?php if (!empty($roleError)): ?>
-                                <span class="help-inline"><?php echo $roleError;?></span>
-                                <?php endif;?>
-                            </div>
                             </div>
                             <div>
                             <button type="submit" class="btn btn-success">Update</button>
-                            <a class="btn" href="Gestion_etudiants.php">Back</a>
+                            <a class="btn" href="GestionPilote.php">Back</a>
                             </div>
                             </form>
                             </div>
@@ -215,7 +200,6 @@ if ( !empty($_POST)) {
                 document.getElementById("identifiant_profil").value = "";
                 document.getElementById("password_profil").value = "";
                 document.getElementById("id_centre").value = "";
-                document.getElementById("id_role").value = "";
                 return;
             }
             else {
@@ -239,8 +223,6 @@ if ( !empty($_POST)) {
                             ("password_profil").value = myObj[4];
                         document.getElementById
                             ("id_centre").value = myObj[5];
-                        document.getElementById
-                            ("id_role").value = myObj[6];
                     }
                 };
   

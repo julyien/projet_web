@@ -48,7 +48,7 @@
          $dbh = "INSERT INTO entreprise (nom_entreprise,centre_activite_entreprise,nombre_stagiaireCESI_entreprise) values(?, ?, ?)";
          $q = $sql->prepare($dbh);
          $q->execute(array($nom_entreprise,$centre_activite_entreprise,$nombre_stagiaireCESI_entreprise));
-         header('Location: Gestion_entreprise.php');
+         header('Location: GestionEntreprise.php');
      }
  
     }
@@ -119,7 +119,7 @@
                       </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
-                          <a class="btn" href="Gestion_entreprise.php">Back</a>
+                          <a class="btn" href="GestionEntreprise.php">Back</a>
                         </div>
                     </form>
                 </div>

@@ -15,7 +15,7 @@ if ( !empty($_POST)) {
     
     
     if (empty($id_profil)) {
-        $IdError = "Donner l'ID du profil";
+        $IdError = "Donner l'ID du pilote";
         $valid = false;
     }
     
@@ -40,7 +40,7 @@ if ( !empty($_POST)) {
         $dbh = "DELETE FROM profil WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($id_profil));
-        header('Location: Gestion_etudiants.php');
+        header('Location: GestionPilote.php');
     }
 }
 
@@ -50,8 +50,23 @@ if ( !empty($_POST)) {
 <html>
 <head>
 <meta charset="utf-8">
+<link   href="projet.css" rel="stylesheet">
 <link   href="css/bootstrap.min.css" rel="stylesheet">
-<script src="js/bootstrap.min.js"></script>
+    <script src=
+        "https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+  
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        type="text/javascript">
+    </script>
+      
+    <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
 </head>
 
 <body>
@@ -64,7 +79,7 @@ if ( !empty($_POST)) {
 
 <form class="form-horizontal" method="post">
 <div class="control-group <?php echo !empty($IdError)?'error':'';?>">
-<label class="control-label">Id Profil</label>
+<label class="control-label">Id Pilote</label>
 <div class="controls">
 <input name="id_profil" type="int"  placeholder="id_profil" value="<?php echo !empty($id_profil)?$id_profil:'';?>">
 <?php if (!empty($IdError)): ?>
@@ -74,7 +89,7 @@ if ( !empty($_POST)) {
     </div>
     <div class="form-actions">
     <button type="submit" class="btn btn-success">Supprimer</button>
-    <a class="btn" href="Gestion_etudiants.php">Back</a>
+    <a class="btn" href="GestionPilote.php">Back</a>
     </div>
     </form>
     </div>

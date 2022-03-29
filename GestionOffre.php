@@ -83,17 +83,17 @@ $dbname = "projetweb";
     <div class="row">
     <div class="a col-3">
     <div class="couleur">
-    <pre><button><a href="Gestion_entreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
-    <pre><button><a href="Gestion_offre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
-    <pre><button><a href="Gestion_etudiants.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
-    <pre><button><a href="Gestion_pilotes.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
+    <pre><button><a href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
+    <pre><button><a href="GestionOffre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
+    <pre><button><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
+    <pre><button><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
     </div>
     </div>
     <div class="c col-6">
             <br>
-            <pre>Créer une entreprise       <a type="button" href="CreateEntreprise.php">Créer</a></pre>
-            <pre>Supprimer une entreprise   <a type="button" href="DeleteEntreprise.php">Supprimer</a></pre>
-            <pre>Modifier une entreprise    <a type="button" href="UpdateEntreprise.php">Modifier</a></pre>
+            <pre>Créer une offre       <a type="button" href="CreateOffre.php">Créer</a></pre>
+            <pre>Supprimer une offre   <a type="button" href="DeleteOffre.php">Supprimer</a></pre>
+            <pre>Modifier une offre    <a type="button" href="UpdateOffre.php">Modifier</a></pre>
             <br>
         </div>
     </div>

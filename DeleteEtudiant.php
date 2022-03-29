@@ -8,14 +8,14 @@ if ( !empty($_POST)) {
     
     // keep track post values
     
-    $id_entreprise = $_POST['id_entreprise'];
+    $id_profil = $_POST['id_profil'];
     
     // validate input
     $valid = true;
     
     
-    if (empty($id_entreprise)) {
-        $IdError = "Donner l'ID de l'entreprise";
+    if (empty($id_profil)) {
+        $IdError = "Donner l'ID de l'étudiant";
         $valid = false;
     }
     
@@ -24,21 +24,23 @@ if ( !empty($_POST)) {
     
     // insert data
     if ($valid) {
-        $dbh = "DELETE FROM entreprise WHERE id_entreprise = ?";    
-        $q = $sql->prepare($dbh);
-        $q->execute(array($id_entreprise));
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh = "DELETE FROM evalue WHERE id_entreprise = ?";    
+        $dbh = "DELETE FROM appartient WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_entreprise));
-        $dbh = "DELETE FROM offre WHERE id_entreprise = ?";    
+        $q->execute(array($id_profil));
+        $dbh = "DELETE FROM permission WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_entreprise));
-        $dbh = "DELETE FROM se_situe WHERE id_entreprise = ?";    
+        $q->execute(array($id_profil));
+        $dbh = "DELETE FROM candidate WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_entreprise));
- 
-        header('Location: Gestion_entreprise.php');
+        $q->execute(array($id_profil));
+        $dbh = "DELETE FROM wishlist WHERE id_profil = ?";    
+        $q = $sql->prepare($dbh);
+        $q->execute(array($id_profil));
+        $dbh = "DELETE FROM profil WHERE id_profil = ?";    
+        $q = $sql->prepare($dbh);
+        $q->execute(array($id_profil));
+        header('Location: Gestion_etudiants.php');
     }
 }
 
@@ -72,14 +74,14 @@ if ( !empty($_POST)) {
 
 <div>
 <div>
-<h3>Supprimer une entreprise</h3>
+<h3>Supprimer un profil</h3>
 </div>
 
 <form class="form-horizontal" method="post">
 <div class="control-group <?php echo !empty($IdError)?'error':'';?>">
-<label class="control-label">Id Entreprise</label>
+<label class="control-label">Id Etudiant</label>
 <div class="controls">
-<input name="id_entreprise" type="int"  placeholder="id_entreprise" value="<?php echo !empty($id_entreprise)?$id_entreprise:'';?>">
+<input name="id_profil" type="int"  placeholder="id_profil" value="<?php echo !empty($id_profil)?$id_profil:'';?>">
 <?php if (!empty($IdError)): ?>
     <span class="help-inline"><?php echo $IdError;?></span>
     <?php endif; ?>
@@ -87,7 +89,7 @@ if ( !empty($_POST)) {
     </div>
     <div class="form-actions">
     <button type="submit" class="btn btn-success">Supprimer</button>
-    <a class="btn" href="GestionEntreprise.php">Back</a>
+    <a class="btn" href="GestionEtudiant.php">Back</a>
     </div>
     </form>
     </div>

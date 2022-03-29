@@ -37,7 +37,7 @@ if ( !empty($_POST)) {
         $dbh = "DELETE FROM offre WHERE id_offre = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($id_offre));
-        header('Location: Gestion_offre.php');
+        header('Location: GestionOffre.php');
     }
 }
 
@@ -47,8 +47,23 @@ if ( !empty($_POST)) {
 <html>
 <head>
 <meta charset="utf-8">
+<link   href="projet.css" rel="stylesheet">
 <link   href="css/bootstrap.min.css" rel="stylesheet">
-<script src="js/bootstrap.min.js"></script>
+    <script src=
+        "https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+  
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        type="text/javascript">
+    </script>
+      
+    <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
 </head>
 
 <body>
@@ -71,7 +86,7 @@ if ( !empty($_POST)) {
     </div>
     <div class="form-actions">
     <button type="submit" class="btn btn-success">Supprimer</button>
-    <a class="btn" href="Gestion_offre.php">Back</a>
+    <a class="btn" href="GestionOffre.php">Back</a>
     </div>
     </form>
     </div>

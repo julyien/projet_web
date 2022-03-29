@@ -75,7 +75,7 @@
          $dbh = "INSERT INTO offre (entreprise_offre,duree_offre,base_remuneration_offre, date_offre ,nombre_place_offre,description_offre,id_entreprise) values(?, ?, ?, ?, ?,?,?) ";
          $q = $sql->prepare($dbh);
          $q->execute(array($entreprise_offre,$duree_offre,$remuneration_offre, $date_offre, $nombreplace_offre,$description_offre,$identreprise_offre));
-         header('Location: Gestion_offre.php');
+         header('Location: GestionOffre.php');
      }
  }
 ?>
@@ -187,7 +187,7 @@
                       </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
-                          <a class="btn" href="Gestion_offre.php">Back</a>
+                          <a class="btn" href="GestionOffre.php">Back</a>
                         </div>
                     </form>
                 </div>

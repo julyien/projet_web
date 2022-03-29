@@ -83,17 +83,17 @@ $dbname = "projetweb";
     <div class="row">
     <div class="a col-3">
     <div class="couleur">
-    <pre><button><a href="Gestion_entreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
-    <pre><button><a href="Gestion_offre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
-    <pre><button><a href="Gestion_etudiants.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
-    <pre><button><a href="Gestion_pilotes.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
+    <pre><button><a href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
+    <pre><button><a href="GestionOffre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
+    <pre><button><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
+    <pre><button><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
     </div>
     </div>
     <div class="c col-6">
             <br>
-            <pre>Créer une offre       <a type="button" href="CreateOffres.php">Créer</a></pre>
-            <pre>Supprimer une offre   <a type="button" href="DeleteOffres.php">Supprimer</a></pre>
-            <pre>Modifier une offre    <a type="button" href="UpdateOffres.php">Modifier</a></pre>
+            <pre>Créer un pilote       <a type="button" href="CreatePilote.php">Créer</a></pre>
+            <pre>Supprimer un pilote   <a type="button" href="DeletePilote.php">Supprimer</a></pre>
+            <pre>Modifier un pilote    <a type="button" href="UpdatePilote.php">Modifier</a></pre>
             <br>
         </div>
     </div>

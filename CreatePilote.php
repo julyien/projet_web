@@ -65,7 +65,7 @@
          $dbh = "INSERT INTO profil (nom_profil,prenom_profil,promotion_profil, identifiant_profil, password_profil, id_centre, id_role) values(?, ?, ?, ?, ?, ?, ?)";
          $q = $sql->prepare($dbh);
          $q->execute(array($nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil, $id_centre, $id_role));
-         header('Location: Gestion_etudiants.php');
+         header('Location: GestionPilote.php');
      }
  }
 
@@ -167,7 +167,7 @@
                       </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
-                          <a class="btn" href="Gestion_pilotes.php">Back</a>
+                          <a class="btn" href="GestionPilote.php">Back</a>
                         </div>
                     </form>
                 </div>

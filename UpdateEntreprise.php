@@ -53,7 +53,7 @@ if ( !empty($_POST)) {
         $dbh = "UPDATE `entreprise` SET nom_entreprise =  ?, centre_activite_entreprise = ?, nombre_stagiaireCESI_entreprise = ? WHERE id_entreprise = ?";
         $q = $sql->prepare($dbh);   
         $q->execute(array( $nom_entreprise,$centre_activite_entreprise,$nombre_stagiaireCESI_entreprise, $id_entreprise )); 
-        header('Location: Gestion_entreprise.php');
+        header('Location: GestionEntreprise.php');
     }
 }
 ?>
@@ -87,7 +87,7 @@ if ( !empty($_POST)) {
 <div>
 <h3>Modifier une entreprise</h3>
 </div>
-<form class="form-horizontal" action="Update_Entreprise.php?id_entreprise=<?php echo $id_entreprise?>" method="post">
+<form class="form-horizontal" action="UpdateEntreprise.php?id_entreprise=<?php echo $id_entreprise?>" method="post">
 <div class="control-group <?php echo !empty($IdError)?'error':'';?>">
 <label class="control-label">ID Entreprise</label>
 <div class="controls">
@@ -134,7 +134,7 @@ if ( !empty($_POST)) {
                 </div>
                 <div>
                 <button type="submit" class="btn btn-success">Update</button>
-                <a class="btn" href="Gestion_entreprise.php">Back</a>
+                <a class="btn" href="GestionEntreprise.php">Back</a>
                 </div>
                 </form>
             </div>

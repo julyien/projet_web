@@ -83,17 +83,17 @@ $dbname = "projetweb";
     <div class="row">
     <div class="a col-3">
     <div class="couleur">
-    <pre><button><a href="Gestion_entreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
-    <pre><button><a href="Gestion_offre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
-    <pre><button><a href="Gestion_etudiants.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
-    <pre><button><a href="Gestion_pilotes.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
+    <pre><button><a href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
+    <pre><button><a href="GestionOffre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
+    <pre><button><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
+    <pre><button><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
     </div>
     </div>
     <div class="c col-6">
             <br>
             <pre>Créer un étudiant       <a type="btn" href="CreateEtudiant.php">Créer</a></pre>
-            <pre>Supprimer un étudiant   <a type="btn" href="DeleteProfil.php">Supprimer</a></pre>
-            <pre>Modifier un étudiant    <a type="btn" href="UpdateProfil.php">Modifier</a></pre>
+            <pre>Supprimer un étudiant   <a type="btn" href="DeleteEtudiant.php">Supprimer</a></pre>
+            <pre>Modifier un étudiant    <a type="btn" href="UpdateEtudiant.php">Modifier</a></pre>
             <br>
         </div>
     </div>

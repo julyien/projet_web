@@ -80,7 +80,7 @@ if ( !empty($_POST)) {
         $dbh = "UPDATE `offre` SET entreprise_offre =  ?, duree_offre = ?, base_remuneration_offre = ?, date_offre = ?, nombre_place_offre = ?,description_offre = ?, id_entreprise = ? WHERE id_offre = ?";
         $q = $sql->prepare($dbh);   
         $q->execute(array( $entreprise_offre,$duree_offre,$base_remuneration_offre, $date_offre, $nombre_place_offre, $description_offre, $id_entreprise,$id_offre )); 
-        header('Location: Gestion_offre.php');
+        header('Location: GestionOffre.php');
     }
 }
 ?>
@@ -113,7 +113,7 @@ if ( !empty($_POST)) {
     <div>
 <h3>Modifier une offre</h3>
 </div>
-<form class="form-horizontal" action="UpdateOffres.php?id_profil=<?php echo $id_offre?>" method="post">
+<form class="form-horizontal" action="UpdateOffre.php?id_profil=<?php echo $id_offre?>" method="post">
 <div class="control-group <?php echo !empty($IdError)?'error':'';?>">
 <label class="control-label">ID Offre</label>
 <div class="controls">
@@ -203,7 +203,7 @@ if ( !empty($_POST)) {
                             </div>
                             <div>
                             <button type="submit" class="btn btn-success">Update</button>
-                            <a class="btn" href="Gestion_offre.php">Back</a>
+                            <a class="btn" href="GestionOffre.php">Back</a>
                     </div>
                 </form>
             </div>
