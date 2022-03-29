@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des offres</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="projet.css" rel="Stylesheet" type="text/css"/>
@@ -58,7 +59,7 @@ $dbname = "projetweb";
                         <a class="nav-link" href="/ListeDeSouhait.php">Souhaits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Gestion_offre.php">Gestion</a>
+                        <a class="nav-link" href="/GestionOffre.php">Gestion</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/notification.php">Notifications</a>
@@ -83,17 +84,17 @@ $dbname = "projetweb";
     <div class="row">
     <div class="a col-3">
     <div class="couleur">
-    <pre><button><a href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
-    <pre><button><a href="GestionOffre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
-    <pre><button><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
-    <pre><button><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
+    <pre><a href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></pre>
+    <pre><a href="GestionOffre.php"        style="text-decoration:none">Gestion des offres     </a></pre>
+    <pre><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a><</pre>
+    <pre><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a><</pre>
     </div>
     </div>
     <div class="c col-6">
             <br>
-            <pre>Créer une offre       <a type="button" href="CreateOffre.php">Créer</a></pre>
-            <pre>Supprimer une offre   <a type="button" href="DeleteOffre.php">Supprimer</a></pre>
-            <pre>Modifier une offre    <a type="button" href="UpdateOffre.php">Modifier</a></pre>
+            <pre>Créer une offre       <a  href="CreateOffre.php">Créer</a></pre>
+            <pre>Supprimer une offre   <a  href="DeleteOffre.php">Supprimer</a></pre>
+            <pre>Modifier une offre    <a  href="UpdateOffre.php">Modifier</a></pre>
             <br>
         </div>
     </div>
