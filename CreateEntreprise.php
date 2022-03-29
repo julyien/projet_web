@@ -55,6 +55,30 @@
 
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link   href="projet.css" rel="stylesheet">
+<link   href="css/bootstrap.min.css" rel="stylesheet">
+    <script src=
+        "https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+  
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        type="text/javascript">
+    </script>
+      
+    <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</head>
+
+<body>
 <div class="span10 offset1">
                     <div class="row">
                         <h3>Ajouter une entreprise</h3>
@@ -63,7 +87,9 @@
                       <div class="control-group <?php echo !empty($NomError)?'error':'';?>">
                         <label class="control-label">Nom Entreprise</label>
                         <div class="controls">
-                            <input name="nom_entreprise" type="text"  placeholder="nom_entreprise" value="<?php echo !empty($nom_entreprise)?$nom_entreprise:'';?>">
+                        <input type="text" name="nom_entreprise" 
+                        id="nom_entreprise" class="form-control"
+                        placeholder='Nom entreprise' value="<?php echo !empty($nom_entreprise)?$nom_entreprise:'';?>">
                             <?php if (!empty($NomError)): ?>
                                 <span class="help-inline"><?php echo $NomError;?></span>
                             <?php endif; ?>
@@ -72,7 +98,9 @@
                       <div class="control-group <?php echo !empty($CentreError)?'error':'';?>">
                         <label class="control-label">Centre d'activité</label>
                         <div class="controls">
-                            <input name="centre_activite_entreprise" type="text" placeholder="centre_activite_entreprise" value="<?php echo !empty($centre_activite_entreprise)?$centre_activite_entreprise:'';?>">
+                        <input type="text" name="centre_activite_entreprise" 
+                        id="centre_activite_entreprise" class="form-control"
+                        placeholder='centre activite entreprise' value="<?php echo !empty($centre_activite_entreprise)?$centre_activite_entreprise:'';?>">
                             <?php if (!empty($CentreError)): ?>
                                 <span class="help-inline"><?php echo $CentreError;?></span>
                             <?php endif;?>
@@ -81,7 +109,9 @@
                       <div class="control-group <?php echo !empty($StagiaireError)?'error':'';?>">
                         <label class="control-label">Nombre de stagiaire</label>
                         <div class="controls">
-                            <input name="nombre_stagiaireCESI_entreprise" type="text"  placeholder="nombre_stagiaireCESI_entreprise" value="<?php echo !empty($nombre_stagiaireCESI_entreprise)?$nombre_stagiaireCESI_entreprise:'';?>">
+                        <input type="text" name="nombre_stagiaireCESI_entreprise" 
+                        id="nombre_stagiaireCESI_entreprise" class="form-control"
+                        placeholder='nombre stagiaire CESI entreprise'value="<?php echo !empty($nombre_stagiaireCESI_entreprise)?$nombre_stagiaireCESI_entreprise:'';?>">
                             <?php if (!empty($StagiaireError)): ?>
                                 <span class="help-inline"><?php echo $StagiaireError;?></span>
                             <?php endif;?>
@@ -93,3 +123,5 @@
                         </div>
                     </form>
                 </div>
+                            </body>
+                            </html>

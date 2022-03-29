@@ -87,6 +87,7 @@ if ( !empty($_POST)) {
 <html>
 <head>
 <meta charset="utf-8">
+<link   href="projet.css" rel="stylesheet">
 <link   href="css/bootstrap.min.css" rel="stylesheet">
     <script src=
         "https://code.jquery.com/jquery-3.2.1.min.js">

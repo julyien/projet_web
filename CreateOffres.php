@@ -79,6 +79,29 @@
      }
  }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link   href="projet.css" rel="stylesheet">
+<link   href="css/bootstrap.min.css" rel="stylesheet">
+    <script src=
+        "https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+  
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        type="text/javascript">
+    </script>
+      
+    <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</head>
+<body>
 
 <div class="span10 offset1">
                     <div class="row">
@@ -88,7 +111,9 @@
                       <div class="control-group <?php echo !empty($entrpriseError)?'error':'';?>">
                         <label class="control-label">Nom de l'entreprise</label>
                         <div class="controls">
-                            <input name="entreprise_offre" type="text"  placeholder="entreprise_offre" value="<?php echo !empty($entreprise_offre)?$entreprise_offre:'';?>">
+                        <input type="text" name="entreprise_offre" 
+                        id="entreprise_offre" class="form-control"
+                        placeholder='Entreprise Offre' value="<?php echo !empty($entreprise_offre)?$entreprise_offre:'';?>">
                             <?php if (!empty($entrpriseError)): ?>
                                 <span class="help-inline"><?php echo $entrpriseError;?></span>
                             <?php endif; ?>
@@ -97,7 +122,9 @@
                       <div class="control-group <?php echo !empty($dureeError)?'error':'';?>">
                         <label class="control-label">Duree du stage</label>
                         <div class="controls">
-                            <input name="duree_offre" type="text" placeholder="duree_offre" value="<?php echo !empty($duree_offre)?$duree_offre:'';?>">
+                        <input type="text" name="duree_offre" 
+                        id="duree_offre" class="form-control"
+                        placeholder='Duree offre' value="<?php echo !empty($duree_offre)?$duree_offre:'';?>">
                             <?php if (!empty($dureeError)): ?>
                                 <span class="help-inline"><?php echo $dureeError;?></span>
                             <?php endif;?>
@@ -106,7 +133,9 @@
                       <div class="control-group <?php echo !empty($remunerationError)?'error':'';?>">
                         <label class="control-label">Base de la remuneration</label>
                         <div class="controls">
-                            <input name="base_remuneration_offre" type="int"  placeholder="base_remuneration_offre" value="<?php echo !empty($remuneration_offre)?$remuneration_offre:'';?>">
+                        <input type="text" name="base_remuneration_offre" 
+                        id="base_remuneration_offre" class="form-control"
+                        placeholder='Base Remuneration' value="<?php echo !empty($remuneration_offre)?$remuneration_offre:'';?>">
                             <?php if (!empty($remunerationError)): ?>
                                 <span class="help-inline"><?php echo $remunerationError;?></span>
                             <?php endif;?>
@@ -115,7 +144,9 @@
                       <div class="control-group <?php echo !empty($dateError)?'error':'';?>">
                         <label class="control-label">Date du stage</label>
                         <div class="controls">
-                            <input name="date_offre" type="date"  placeholder="date_offre" value="<?php echo !empty($date_offre)?$date_offre:'';?>">
+                        <input type="date" name="date_offre" 
+                        id="date_offre" class="form-control"
+                        placeholder='Date Offre' value="<?php echo !empty($date_offre)?$date_offre:'';?>">
                             <?php if (!empty($dateError)): ?>
                                 <span class="help-inline"><?php echo $dateError;?></span>
                             <?php endif;?>
@@ -124,7 +155,9 @@
                       <div class="control-group <?php echo !empty($nombreplaceError)?'error':'';?>">
                         <label class="control-label">Nombre de place pour l'offre </label>
                         <div class="controls">
-                            <input name="nombre_place_offre" type="int"  placeholder="nombre_place_offre" value="<?php echo !empty($nombreplace_offre)?$nombreplace_offre:'';?>">
+                        <input type="text" name="nombre_place_offre" 
+                        id="nombre_place_offre" class="form-control"
+                        placeholder='Nombre Place Offre'value="<?php echo !empty($nombreplace_offre)?$nombreplace_offre:'';?>">
                             <?php if (!empty($nombreplaceError)): ?>
                                 <span class="help-inline"><?php echo $nombreplaceError;?></span>
                             <?php endif;?>
@@ -133,7 +166,9 @@
                       <div class="control-group <?php echo !empty($description_offre)?'error':'';?>">
                         <label class="control-label">Description de l'offre</label>
                         <div class="controls">
-                            <input name="description_offre" type="int"  placeholder="description_offre" value="<?php echo !empty($description_offre)?$description_offre:'';?>">
+                        <input type="text" name="description_offre" 
+                        id="description_offre" class="form-control"
+                        placeholder='Description Offre' value="<?php echo !empty($description_offre)?$description_offre:'';?>">
                             <?php if (!empty($descriptionError)): ?>
                                 <span class="help-inline"><?php echo $descriptionError;?></span>
                             <?php endif;?>
@@ -142,7 +177,9 @@
                       <div class="control-group <?php echo !empty($identreprise_offre)?'error':'';?>">
                         <label class="control-label">ID de l'entreprise</label>
                         <div class="controls">
-                            <input name="id_entreprise" type="int"  placeholder="id_entreprise" value="<?php echo !empty($identreprise_offre)?$identreprise_offre:'';?>">
+                        <input type="text" name="id_entreprise" 
+                        id="id_entreprise" class="form-control"
+                        placeholder='ID entreprise' value="<?php echo !empty($identreprise_offre)?$identreprise_offre:'';?>">
                             <?php if (!empty($identrpriseError)): ?>
                                 <span class="help-inline"><?php echo $identrpriseError;?></span>
                             <?php endif;?>
@@ -154,3 +191,5 @@
                         </div>
                     </form>
                 </div>
+                            </body>
+                            </html>
