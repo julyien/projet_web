@@ -40,6 +40,7 @@ $dbname = "projetweb";
  
 
 ?>
+
     <nav class="navbar navbar-expand navbar-dark topnav">
         <div class="container-fluid">
             <a class="active" href="/acceuil.php"><img src="logo.png" alt="logo" width="70"></a>
@@ -81,31 +82,28 @@ $dbname = "projetweb";
     <br>
     <br>
 
-    <div class="c col-6 mx-auto"  >
-        <div class="brd">
-            <div class="a"><button type="button">Favoris</button></div>
-            <pre>Offre de Stages :</pre>
-            <pre>Nom entreprise</pre>
-            <pre>Nom du poste</pre>
-            <pre>Localisation</pre>
-            <div class="a">
-                <button type="button">Postuler</button> <button type="button">En savoir plus</button>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="c col-6 mx-auto">
-        <div class="brd">
-            <div class="a"><button type="button">Favoris</button></div>
-            <pre>Offre de Stages :</pre>
-            <pre>Nom entreprise</pre>
-            <pre>Nom du poste</pre>
-            <pre>Localisation</pre>
-            <div class="a">
-                <button type="button">Postuler</button> <button type="button">En savoir plus</button>
-            </div>
-        </div>
-    </div>
+    <?php
+
+include('connexionDB.php');
+require_once('connexionDB.php');
+
+foreach ($DB->query('SELECT * FROM offre') as $row) {
+echo '<br>';
+echo '<div class="c col-6 mx-auto"  >';
+echo '<div class="brd">';
+echo '<div class="a"><button type="button">Favoris</button></div>';
+echo ' <pre>Offre de Stages :</pre>';
+echo '<pre>Nom entreprise :</pre> <option value="' . $row['entreprise_offre'] . '">' . $row['entreprise_offre'] . '</option>';
+echo '<pre>Nom du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
+echo '<pre>Rémunération :</pre> <option value="' . $row['base_remuneration_offre'] . '">' . $row['base_remuneration_offre'] . '</option>';
+echo '<pre>Date :</pre> <option value="' . $row['date_offre'] . '">' . $row['date_offre'] . '</option>';
+echo '<div class="a">';
+echo '<button type="button">Postuler</button> <button type="button">En savoir plus</button>';
+echo ' </div>';
+echo '</div>';
+echo '</div>';
+echo '<br>';
+                        }
+?>
 </body>
 </html>
