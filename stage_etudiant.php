@@ -98,7 +98,7 @@ echo '<pre>Nom du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $r
 echo '<pre>Rémunération :</pre> <option value="' . $row['base_remuneration_offre'] . '">' . $row['base_remuneration_offre'] . '</option>';
 echo '<pre>Date :</pre> <option value="' . $row['date_offre'] . '">' . $row['date_offre'] . '</option>';
 echo '<div class="a">';
-echo '<button type="button">Postuler</button> <button type="button">En savoir plus</button>';
+echo '<a><button type="button">Postuler</button></a> <a type="button" href=Statistiques.php>En savoir plus</a>';
 echo ' </div>';
 echo '</div>';
 echo '</div>';
