@@ -1,17 +1,3 @@
-<?php
-  session_start(); 
-  include('connexionDB.php'); 
-
-    $getid = $_GET['id_entreprise'];
-
-
-    $req = $DB->query("SELECT * FROM offre INNER JOIN entreprise ON offre.id_entreprise = entreprise.id_entreprise WHERE id_profil = ? ", array($getid));
-    $row = $req->fetch();
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,29 +88,29 @@ $dbname = "projetweb";
     <br>
     <br>
     
- <?php // A modifier quand bouton de stag config
+    <?php
 
-include('connexionDB.php');
-require_once('connexionDB.php');
+  include('connexionDB.php'); 
 
-foreach ($DB->query('SELECT * FROM offre') as $row) {
-echo '<br>';
-echo '<div class="c col-6 mx-auto"  >';
-echo '<div class="brd">';
-echo '<div class="a"><button type="button">Favoris</button></div>';
-echo ' <pre>Offre de Stages :</pre>';
-echo '<pre>Nom entreprise :</pre> <option value="' . $row['entreprise_offre'] . '">' . $row['entreprise_offre'] . '</option>';
-echo '<pre>Nom du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
-echo '<pre>Rémunération :</pre> <option value="' . $row['base_remuneration_offre'] . '">' . $row['base_remuneration_offre'] . '</option>';
-echo '<pre>Date :</pre> <option value="' . $row['date_offre'] . '">' . $row['date_offre'] . '</option>';
-echo '<div class="a">';
-echo '<a><button type="button">Postuler</button></a> <a type="button" href=Statistiques.php>En savoir plus</a>';
-echo ' </div>';
-echo '</div>';
-echo '</div>';
-echo '<br>';
-                        }
+    $getid = $_GET['id_entreprise'];
+
+
+    $req = $DB->query("SELECT * FROM offre INNER JOIN entreprise ON offre.id_entreprise = entreprise.id_entreprise WHERE offre.id_entreprise = ? ", array($getid));
+    $row = $req->fetch();
+                        
 ?>
+    <div class="row">
+        <div class="c col-md-3">
+                <pre>Nom entreprise <?php echo $row['entreprise_offre']; ?> </pre> 
+                <pre>Description de l'entreprise</pre>
+                <pre>Evaluation des utilisateurs</pre>
+                <div class="c col-md-7 mx-auto">
+                    <div class="brd">
+                        Nombre d'étudiants ayant postulé chez cette entreprise :
+                    </div>
+            </div>
+            
+        </div>
         
         
         <div class="c col-md-5 offset-md-1">
