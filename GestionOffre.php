@@ -86,15 +86,15 @@ $dbname = "projetweb";
     <div class="couleur">
     <pre><a href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></pre>
     <pre><a href="GestionOffre.php"        style="text-decoration:none">Gestion des offres     </a></pre>
-    <pre><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a><</pre>
-    <pre><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a><</pre>
+    <pre><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a></pre>
+    <pre><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a></pre>
     </div>
     </div>
     <div class="c col-6">
             <br>
-            <pre>Créer une offre       <a  href="CreateOffre.php">Créer</a></pre>
-            <pre>Supprimer une offre   <a  href="DeleteOffre.php">Supprimer</a></pre>
-            <pre>Modifier une offre    <a  href="UpdateOffre.php">Modifier</a></pre>
+            <pre>Créer une offre      <a  href="CreateOffre.php">Créer</a></pre>
+            <pre>Supprimer une offre  <a  href="DeleteOffre.php">Supprimer</a></pre>
+            <pre>Modifier une offre   <a  href="UpdateOffre.php">Modifier</a></pre>
             <br>
         </div>
     </div>
