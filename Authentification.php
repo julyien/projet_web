@@ -110,7 +110,7 @@ Mot de passe: <input type="password" placeholder="mot de passe" name="password_p
 </div>
 </div>
 </div>
-</body>
+
 
 <script>
 $(document).ready(function(){
@@ -119,4 +119,5 @@ $(document).ready(function(){
     });
 });
 </script>
+</body>
 </html>
