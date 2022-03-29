@@ -25,7 +25,6 @@ if ( !empty($_POST)) {
     $identifiant_profil = $_POST['identifiant_profil'];
     $password_profil = $_POST['password_profil'];
     $id_centre = $_POST['id_centre'];
-    $id_role = 2;
     
     // validate input
     $valid = true;
@@ -70,9 +69,9 @@ if ( !empty($_POST)) {
     if ($valid) {
         $sql = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, identifiant_profil = ?, password_profil = ?, id_centre = ?,id_role WHERE id_profil = ?";
+        $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, identifiant_profil = ?, password_profil = ?, id_centre = ? WHERE id_profil = ?";
         $q = $sql->prepare($dbh);   
-        $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil, $id_centre,$id_role,$id_profil )); 
+        $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil, $id_centre,$id_profil )); 
         header('Location: GestionEtudiant.php');
     }
 }
@@ -201,7 +200,6 @@ if ( !empty($_POST)) {
                 document.getElementById("identifiant_profil").value = "";
                 document.getElementById("password_profil").value = "";
                 document.getElementById("id_centre").value = "";
-                document.getElementById("id_role").value = "";
                 return;
             }
             else {
@@ -225,8 +223,6 @@ if ( !empty($_POST)) {
                             ("password_profil").value = myObj[4];
                         document.getElementById
                             ("id_centre").value = myObj[5];
-                        document.getElementById
-                            ("id_role").value = myObj[6];
                     }
                 };
   

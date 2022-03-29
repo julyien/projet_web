@@ -11,7 +11,6 @@
      $IDError = null;
      $PswError= null;
      $CentreError = null;
-     
       
      // keep track post values
     

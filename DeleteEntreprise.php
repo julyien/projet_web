@@ -38,7 +38,7 @@ if ( !empty($_POST)) {
         $q = $sql->prepare($dbh);
         $q->execute(array($id_entreprise));
  
-        header('Location: Gestion_entreprise.php');
+        header('Location: GestionEntreprise.php');
     }
 }
 

@@ -48,7 +48,7 @@
                         <a class="nav-link" href="/ListeDeSouhait.php">Souhaits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Gestion_offre.php">Gestion</a>
+                        <a class="nav-link" href="/GestionOffre.php">Gestion</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/notification.php">Notifications</a>

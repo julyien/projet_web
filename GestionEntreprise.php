@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Gestion entreprise</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,7 +59,7 @@ $dbname = "projetweb";
                         <a class="nav-link" href="/ListeDeSouhait.php">Souhaits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Gestion_offre.php">Gestion</a>
+                        <a class="nav-link" href="/GestionOffre.php">Gestion</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/notification.php">Notifications</a>
@@ -83,20 +84,19 @@ $dbname = "projetweb";
     <div class="row">
     <div class="a col-3">
     <div class="couleur">
-    <pre><button><a href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></button></pre>
-    <pre><button><a href="GestionOffre.php"        style="text-decoration:none">Gestion des offres     </a></button></pre>
-    <pre><button><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a></button></pre>
-    <pre><button><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a></button></pre>
+    <pre><a href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></pre>
+    <pre><a href="GestionOffre.php"        style="text-decoration:none">Gestion des offres     </a></pre>
+    <pre><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a></pre>
+    <pre><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a></pre>
     </div>
     </div>
     <div class="c col-6">
             <br>
-            <pre>Créer une entreprise       <a type="button" href="CreateEntreprise.php">Créer</a></pre>
-            <pre>Supprimer une entreprise   <a type="button" href="DeleteEntreprise.php">Supprimer</a></pre>
-            <pre>Modifier une entreprise    <a type="button" href="UpdateEntreprise.php">Modifier</a></pre>
+            <pre>Créer une entreprise       <a href="CreateEntreprise.php">Créer</a></pre>
+            <pre>Supprimer une entreprise   <a href="DeleteEntreprise.php">Supprimer</a></pre>
+            <pre>Modifier une entreprise    <a href="UpdateEntreprise.php">Modifier</a></pre>
             <br>
         </div>
-    </div>
     </div>
 </body>
 </html>
