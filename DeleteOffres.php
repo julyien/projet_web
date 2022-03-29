@@ -71,7 +71,7 @@ if ( !empty($_POST)) {
     </div>
     <div class="form-actions">
     <button type="submit" class="btn btn-success">Supprimer</button>
-    <a class="btn" href="Gestion_Etudiant.php">Back</a>
+    <a class="btn" href="Gestion_offre.php">Back</a>
     </div>
     </form>
     </div>

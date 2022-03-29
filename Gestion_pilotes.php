@@ -92,8 +92,8 @@ $dbname = "projetweb";
     <div class="c col-6">
             <br>
             <pre>Créer un pilote       <a type="button" href="CreatePilote.php">Créer</a></pre>
-            <pre>Supprimer un pilote   <a type="button" href="Delete.php">Supprimer</a></pre>
-            <pre>Modifier un pilote    <a type="button" href="Update.php">Modifier</a></pre>
+            <pre>Supprimer un pilote   <a type="button" href="DeleteProfil.php">Supprimer</a></pre>
+            <pre>Modifier un pilote    <a type="button" href="UpdateProfil.php">Modifier</a></pre>
             <br>
         </div>
     </div>

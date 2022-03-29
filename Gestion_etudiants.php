@@ -91,7 +91,7 @@ $dbname = "projetweb";
     </div>
     <div class="c col-6">
             <br>
-            <pre>Créer un étudiant       <a type="btn" href="CreateProfil.php">Créer</a></pre>
+            <pre>Créer un étudiant       <a type="btn" href="CreateEtudiant.php">Créer</a></pre>
             <pre>Supprimer un étudiant   <a type="btn" href="DeleteProfil.php">Supprimer</a></pre>
             <pre>Modifier un étudiant    <a type="btn" href="UpdateProfil.php">Modifier</a></pre>
             <br>
