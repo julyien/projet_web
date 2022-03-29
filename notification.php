@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="projet.css" rel="Stylesheet" type="text/css"/>
@@ -83,7 +84,7 @@ $dbname = "projetweb";
     <br>
     <div class="c col-6 mx-auto">
         <div class="brd">
-            <div class="b"><pre>Nom notif</div>
+            <div class="b"><pre>Nom notif</pre></div>
             <pre>Description notif</pre>
         </div>
     </div>
@@ -91,7 +92,7 @@ $dbname = "projetweb";
     <br>
     <div class="c col-6 mx-auto">
         <div class="brd">
-        <div class="b"><pre>Nom notif</div>
+        <div class="b"><pre>Nom notif</pre></div>
             <pre>Description</pre>
         </div>
     </div>
@@ -99,7 +100,7 @@ $dbname = "projetweb";
     <br>
     <div class="c col-6 mx-auto">
         <div class="brd">
-        <div class="b"><pre>Nom notif</div>
+        <div class="b"><pre>Nom notif</pre></div>
             <pre>Description</pre>
         </div>
     </div>
@@ -107,7 +108,7 @@ $dbname = "projetweb";
     <br>
     <div class="c col-6 mx-auto">
         <div class="brd">
-        <div class="b"><pre>Nom notif</div>
+        <div class="b"><pre>Nom notif</pre></div>
             <pre>Description</pre>
         </div>
     </div>
