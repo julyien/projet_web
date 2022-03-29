@@ -25,9 +25,6 @@ if ( !empty($_POST)) {
     // insert data
     if ($valid) {
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh = "DELETE FROM appartient WHERE id_profil = ?";    
-        $q = $sql->prepare($dbh);
-        $q->execute(array($id_profil));
         $dbh = "DELETE FROM permission WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($id_profil));
@@ -40,7 +37,7 @@ if ( !empty($_POST)) {
         $dbh = "DELETE FROM profil WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($id_profil));
-        header('Location: Gestion_etudiants.php');
+        header('Location: GestionEtudiant.php');
     }
 }
 
