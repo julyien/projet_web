@@ -85,18 +85,17 @@ $dbname = "projetweb";
     <div class="row">
     <div class="a col-3">
     <div class="couleur">
-    <pre><a href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></pre>
-    <pre><a href="GestionOffre.php"        style="text-decoration:none">Gestion des offres     </a></pre>
-    <pre><a href="GestionEtudiant.php"    style="text-decoration:none">Gestion des étudiants  </a></pre>
-    <pre><a href="GestionPilote.php"      style="text-decoration:none">Gestion des pilotes    </a></pre>
+    <pre><a class="CouleurLien" href="GestionEntreprise.php"   style="text-decoration:none">Gestion des entreprises</a></pre>
+    <pre><a class="CouleurLien" href="GestionOffre.php"        style="text-decoration:none">    Gestion des offres    </a></pre>
+    <pre><a class="CouleurLien" href="GestionEtudiant.php"    style="text-decoration:none"> Gestion des étudiants </a></pre>
+    <pre><a class="CouleurLien" href="GestionPilote.php"      style="text-decoration:none">   Gestion des pilotes    </a></pre>
     </div>
     </div>
     <div class="c col-6">
             <br>
-            <pre>Créer un étudiant       <a href="CreateEtudiant.php">Créer</a></pre>
-            <pre>Supprimer un étudiant   <a href="DeleteEtudiant.php">Supprimer</a></pre>
-            <pre>Modifier un étudiant    <a href="UpdateEtudiant.php">Modifier</a></pre>
-            <br>
+            <pre>Créer un étudiant       <a class="CouleurLien" href="CreateEtudiant.php">   Créer     </a></pre>
+            <pre>Supprimer un étudiant   <a class="CouleurLien" href="DeleteEtudiant.php"> Supprimer</a></pre>
+            <pre>Modifier un étudiant    <a class="CouleurLien" href="UpdateEtudiant.php"> Modifier  </a></pre>
         </div>
     </div>
 </body>

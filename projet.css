@@ -53,3 +53,18 @@ h4{
     background-image: url(bleu.jpg);
     z-index: -1;
 }
+
+.CouleurLien { 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration:none;
+    text-transform: uppercase;
+    color: white;
+    padding:10px 18px 0px;
+    background-color: #3498DB;
+    transition: background ease-in 500ms;
+ }
+
+ .CouleurLien:hover{
+     background-color: #0c2461;
+     color: #f2f2f2;
+ }
