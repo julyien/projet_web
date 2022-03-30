@@ -68,6 +68,7 @@ if(!empty($_POST)){
 <link href="projet.css" rel="Stylesheet" type="text/css"/>
 </head>
 <body>
+<div class="bg"></div>
 <div class="d"> <h2>Bienvenue sur JVPN veuillez vous connecter.</h2></div>
 <div class="container">
 <div class="row">
