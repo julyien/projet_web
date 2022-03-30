@@ -1,0 +1,4 @@
+AuthName "Page d'administration protégée, veuillez vous identifier"
+AuthType Basic
+AuthUserFile "D:/www/ExiaDrink/Admin/.htpasswd"
+Require valid-user
