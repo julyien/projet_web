@@ -8,14 +8,14 @@ if ( !empty($_POST)) {
     
     // keep track post values
     
-    $id_profil = $_POST['id_profil'];
+    $identifiant_profil = $_POST['identifiant_profil'];
     
     // validate input
     $valid = true;
     
     
-    if (empty($id_profil)) {
-        $IdError = "Donner l'ID du pilote";
+    if (empty($identifiant_profil)) {
+        $IdError = "Donner l'identifiant du pilote";
         $valid = false;
     }
     
@@ -25,18 +25,18 @@ if ( !empty($_POST)) {
     // insert data
     if ($valid) {
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh = "DELETE FROM permission WHERE id_profil = ?";    
+        $dbh = "DELETE FROM permission WHERE identifiant_profil = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_profil));
-        $dbh = "DELETE FROM candidate WHERE id_profil = ?";    
+        $q->execute(array($identifiant_profil));
+        $dbh = "DELETE FROM candidate WHERE identifiant_profil = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_profil));
-        $dbh = "DELETE FROM wishlist WHERE id_profil = ?";    
+        $q->execute(array($identifiant_profil));
+        $dbh = "DELETE FROM wishlist WHERE identifiant_profil = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_profil));
-        $dbh = "DELETE FROM profil WHERE id_profil = ?";    
+        $q->execute(array($identifiant_profil));
+        $dbh = "DELETE FROM profil WHERE identifiant_profil = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_profil));
+        $q->execute(array($identifiant_profil));
         header('Location: GestionPilote.php');
     }
 }
@@ -79,7 +79,7 @@ if ( !empty($_POST)) {
 <div class="control-group <?php echo !empty($IdError)?'error':'';?>">
 <label class="control-label">Id Pilote</label>
 <div class="controls">
-<input name="id_profil" type="int"  placeholder="id_profil" value="<?php echo !empty($id_profil)?$id_profil:'';?>">
+<input name="identifiant_profil" type="int"  placeholder="identifiant_profil" value="<?php echo !empty($identifiant_profil)?$identifiant_profil:'';?>">
 <?php if (!empty($IdError)): ?>
     <span class="help-inline"><?php echo $IdError;?></span>
     <?php endif; ?>

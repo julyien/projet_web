@@ -12,26 +12,37 @@
      $nombreplaceError = null;
      $descriptionError = null;
      $entrepriseError = null;
+     $nomError = null;
 
      
       
      // keep track post values
     
      //$id_offre = $_POST['id_offre'];
+     $nom_offre= $_POST['nom_offre'];
      $duree_offre = $_POST['duree_offre'];
      $remuneration_offre = $_POST['base_remuneration_offre'];
      $date_offre = $_POST['date_offre'];
      $nombreplace_offre = $_POST['nombre_place_offre'];
      $description_offre = $_POST['description_offre'];
      $nom_entreprise = $_POST['nom_entreprise'];
-    // $entreprise_offre = $_POST['entreprise_offre'];
-     $nom_entreprise = $entreprise_offre;
      
 
       
      // validate input
      $valid = true;
+
+     
+    if (empty($nom_entreprise)) {
+        $entrepriseError = "Donner le nom de l'entreprise";
+        $valid = false;
+    }
       
+     if (empty($nom_offre)) {
+        $nomError = "Donner le nom de l'offre";
+        $valid = false;
+    }
+
      if (empty($duree_offre)) {
          $dureeError = "Donner la duree de l'offre"; 
          $valid = false;
@@ -57,21 +68,18 @@
         $valid = false;
     }
 
-    if (empty($nom_entreprise)) {
-        $entrepriseError = "Donner le nom de l'entreprise";
-        $valid = false;
-    }
+
       
      // insert data
      if ($valid) {
          $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-         $dbh = "SELECT nom_entreprise FROM entreprise WHERE nom_entreprise = ? limit 1";
+         $dbh = "SELECT id_entreprise FROM entreprise WHERE nom_entreprise = ? limit 1";
          $q = $sql->prepare($dbh);
          $q->execute(array($nom_entreprise));
          $nom_entreprise = $q->fetchColumn();
-         $dbh = "INSERT INTO offre (entreprise_offre,duree_offre,base_remuneration_offre, date_offre ,nombre_place_offre,description_offre,id_entreprise) values(?, ?, ?, ?, ?,?,?) ";
+         $dbh = "INSERT INTO offre (nom_offre,duree_offre,base_remuneration_offre, date_offre ,nombre_place_offre,description_offre,id_entreprise) values(?,?,?, ?, ?, ?,?) ";
          $q = $sql->prepare($dbh);
-         $q->execute(array($entreprise_offre,$duree_offre,$remuneration_offre, $date_offre, $nombreplace_offre,$description_offre,$nom_entreprise));
+         $q->execute(array($nom_offre,$duree_offre,$remuneration_offre, $date_offre, $nombreplace_offre,$description_offre,$nom_entreprise));
          header('Location: GestionOffre.php');
      }
  }
@@ -115,7 +123,17 @@
                                 <span class="help-inline"><?php echo $entrepriseError;?></span>
                             <?php endif;?>
                         </div>
-                      </div>
+                    <div class="control-group <?php echo !empty($nom_offre)?'error':'';?>">
+                        <label class="control-label">Nom de l'offre</label>
+                        <div class="controls">
+                        <input type="text" name="nom_offre" 
+                        id="nom_offre" class="form-control"
+                        placeholder='Nom Offre' value="<?php echo !empty($nom_offre)?$nom_offre:'';?>">
+                            <?php if (!empty($nomError)): ?>
+                                <span class="help-inline"><?php echo $nomError;?></span>
+                            <?php endif;?>
+                        </div>
+                    </div>
                       <div class="control-group <?php echo !empty($dureeError)?'error':'';?>">
                         <label class="control-label">Duree du stage</label>
                         <div class="controls">
