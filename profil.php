@@ -99,6 +99,7 @@
             <pre><i class="fa-solid fa-location-dot"></i>  Centre <?php echo $row['nom_centre']; ?></pre>
             <br>
             <pre><i class="fa-solid fa-graduation-cap"></i> Promotion <?php echo $row['promotion_profil']; ?></pre>
+            <pre><i class="fa-solid fa-graduation-cap"></i> role <?php echo $row['id_role']; ?></pre>
             <br>
             <pre><i class="fa-solid fa-percent"></i>  Statistique </pre>
             </h3>

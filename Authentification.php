@@ -33,7 +33,7 @@ if(!empty($_POST)){
         
         if (is_null($row['id_profil'])){
             $valid = false;
-            $er_pseudo = "Le mail ou le mot de passe est incorrecte";
+            $er_pseudo = "L'identifiant ou le mot de passe est incorrecte";
        }
         
         
