@@ -89,6 +89,7 @@ $dbname = "projetweb";
     session_start();
     $getid = intval($_SESSION['id_profil']);
     
+    
     foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation INNER JOIN wishlist ON offre.id_offre = wishlist.id_offre  WHERE  wishlist.id_profil = ? GROUP BY wishlist.id_offre', array($getid)) as $row) {
         echo '<br>';
         echo '<div class="c col-md-5 offset-md-1">';
