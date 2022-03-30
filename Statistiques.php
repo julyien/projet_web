@@ -118,14 +118,16 @@ $dbname = "projetweb";
 <?php 
 
 
-function wishlist(){
+function candidate(){
 
     session_start();
+    include('connexionDB.php'); 
     $getid = intval($_SESSION['id_profil']);
+    $getidoffre = intval($row['id_offre']);
     $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh=mysql_query("INSERT INTO wishlist (id_profil) values ($getid)");
+    $dbh=mysql_query("INSERT INTO wishlist (id_offre, id_profil) values (?, ?)");
     $q = $sql->prepare($dbh);
-    $q->execute(array());
+    $q->execute(array($getidoffre, $getid));
     
 }
 
@@ -133,7 +135,7 @@ function wishlist(){
 foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation WHERE offre.id_entreprise=?', array($getid)) as $row) {
 echo '<br>';
 echo '<div class="c col-md-5 offset-md-1">';
-echo '<div class="a"><button id="btn" >Favoris</button></div>';
+echo '<div class="a"><button onclick="wishlist()" >Favoris</button></div>';
 echo '<h3>Offre</h3>';
 echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
 echo '<pre>Titre du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
@@ -152,7 +154,7 @@ echo '<button type="button">Like</button> <button type="button">Dislike</button>
 echo '</div>';
 echo '<div class="a">';
 echo '<br>';
-echo '<button type="button">Postuler</button>';
+echo '<button type="button" onclick="candidate()">Postuler</button>';
 echo ' </div>';
 echo '</div>';
 echo '</div>';
