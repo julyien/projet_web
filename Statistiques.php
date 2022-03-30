@@ -104,7 +104,7 @@ $dbname = "projetweb";
     <div class="row">
         <div class="c col-md-3">
                 <h3>Entreprise</h3>
-                <pre>Nom entreprise : <?php echo $row['entreprise_offre'] ?> </pre> 
+                <pre>Nom entreprise : <?php echo $row['nom_entreprise'] ?> </pre> 
                 <pre>Centre d'activité : <?php echo $row['centre_activite_entreprise'] ?> </pre>
                 <pre>Evaluation des utilisateurs :</pre>
                 <div class="c col-md-7 mx-auto">
