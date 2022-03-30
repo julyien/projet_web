@@ -10,6 +10,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="projet.css" rel="Stylesheet" type="text/css" />
     <link rel="manifest" href="manifest.json">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         //if browser support service worker
         if('serviceWorker' in navigator) {
@@ -81,7 +82,7 @@ $dbname = "projetweb";
     </nav>
     <br>
     <div class="center">
-        <h2> Statistiques : </h2>
+        <h2> Page Entreprise </h2>
     </div>
     <br>
     <br>
@@ -101,58 +102,49 @@ $dbname = "projetweb";
 ?>
     <div class="row">
         <div class="c col-md-3">
-                <pre>Nom entreprise <?php echo $row['entreprise_offre']; ?> </pre> 
-                <pre>Description de l'entreprise</pre>
-                <pre>Evaluation des utilisateurs</pre>
+                <h3>Entreprise</h3>
+                <pre>Nom entreprise : <?php echo $row['entreprise_offre'] ?> </pre> 
+                <pre>Centre d'activité : <?php echo $row['centre_activite_entreprise'] ?> </pre>
+                <pre>Evaluation des utilisateurs :</pre>
                 <div class="c col-md-7 mx-auto">
                     <div class="brd">
-                        Nombre d'étudiants ayant postulé chez cette entreprise :
+                        Nombre d'étudiants ayant postulé chez cette entreprise : <?php echo $row['nombre_stagiaireCESI_entreprise'] ?>
                     </div>
             </div>
-            
         </div>
         
-        
-        <div class="c col-md-5 offset-md-1">
-            
-                <div class="a"><button type="button">Favoris</button></div>
-                <pre>Titre du poste</pre>
-                <pre>Description du poste</pre>
-            
-            <div class="b">
-                <br>
-                Evaluer l'entreprise : <button type="button">Like</button> <button type="button">Dislike</button>
-            </div>
-            <div class="a">
-                <br>
-                <button type="button">Détails</button> <button type="button">Postuler</button>
-            </div>
-        </div>
-    </div>
+<?php 
 
-<br><br><br>
-<div class="c col-md-5 offset-md-4">
-    <div class="brd">
-        <pre>Statistiques du poste :</pre>
-        <br><br>
-        <pre>Compétences</pre>
-        <pre>Localités</pre>
-        <pre>Entreprise</pre>
-        <pre>Type de promotion concernées</pre>
-        <pre>Durée du stage</pre>
-        <pre>Base de rémunération</pre>
-        <pre>Date de l'offre</pre>
-        <pre>Nombre de place offertes aux étudiants</pre>
-        
-        
-    </div>
-</div>
+foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation WHERE offre.id_entreprise=?', array($getid)) as $row) {
+echo '<br>';
+echo '<div class="c col-md-5 offset-md-1">';
+echo '<div class="a"><button type="button">Favoris</button></div>';
+echo '<h3>Offre</h3>';
+echo '<pre>Titre du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
+echo ' <pre>Description du poste : </pre> <option value="' . $row['description_offre'] . '">' . $row['description_offre'] . '</option>';
+echo '<div class="b">';
+echo '<br>';
+echo '<h3>Statistiques</h3>';
+echo '<pre>Localités : </pre> <option value="' . $row['ville_localisation'] . '">' . $row['ville_localisation'] . '</option>';
+echo '<pre>Durée du stage : </pre> <option value="' . $row['duree_offre'] . '">' . $row['duree_offre'] . '</option>';
+echo '<pre>Base de rémunération : </pre> <option value="' . $row['base_remuneration_offre'] . '">' . $row['base_remuneration_offre'] . '</option>';
+echo '<pre>Date offre : </pre> <option value="' . $row['date_offre'] . '">' . $row['date_offre'] . '</option>';
+echo '<pre>Nombre de place offertes aux étudiants : </pre> <option value="' . $row['nombre_place_offre'] . '">' . $row['nombre_place_offre'] . '</option>';
+echo '<br>';
+echo '<button type="button">Like</button> <button type="button">Dislike</button>';
+echo '</div>';
+echo '<div class="a">';
+echo '<br>';
+echo '<button type="button">Postuler</button>';
+echo ' </div>';
+echo '</div>';
+echo '</div>';
+echo '<br>';
 
 
 
-
-
-
+                        }
+?>
 </body>
 
 </html>

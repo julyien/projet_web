@@ -81,20 +81,47 @@ $dbname = "projetweb";
     </nav>
     <br>
     <br>
-    <br>
-    <br>
 
-    <?php
+<?php
+// On détermine sur quelle page on se trouve
+if(isset($_GET['page']) && !empty($_GET['page'])){
+    $currentPage = (int) strip_tags($_GET['page']);
+}else{
+    $currentPage = 1;
+}
 
-include('connexionDB.php');
 require_once('connexionDB.php');
 
-foreach ($DB->query('SELECT * FROM offre') as $row) {
+// On détermine le nombre total d'articles
+$sql = 'SELECT COUNT(*) AS nb_articles FROM `offre`;';
+
+// On prépare la requête
+$req = $DB->query($sql);
+
+// On récupère le nombre d'articles
+$result = $req->fetch();
+
+$nbArticles = (int) $result['nb_articles'];
+
+// On détermine le nombre d'articles par page
+$parPage = 4;
+
+// On calcule le nombre de pages total
+$pages = ceil($nbArticles / $parPage);
+
+// Calcul du 1er article de la page
+$premier = (($currentPage-1) * $parPage);
+
+$sql = 'SELECT * FROM `offre` ORDER BY `id_offre` DESC LIMIT '.$premier.', 4';
+
+// On prépare la requête
+$req = $DB->query($sql);
+
+foreach ($req->fetchAll() as $row) {
 echo '<br>';
 echo '<div class="c col-6 mx-auto"  >';
 echo '<div class="brd">';
 echo '<div class="a"><button type="button">Favoris</button></div>';
-echo ' <pre>Offre de Stages :</pre>';
 echo '<pre>Nom entreprise :</pre> <option value="' . $row['entreprise_offre'] . '">' . $row['entreprise_offre'] . '</option>';
 echo '<pre>Nom du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
 echo '<pre>Rémunération :</pre> <option value="' . $row['base_remuneration_offre'] . '">' . $row['base_remuneration_offre'] . '</option>';
@@ -106,7 +133,25 @@ echo ' </div>';
 echo '</div>';
 echo '</div>';
 echo '<br>';
-                        }
+}
 ?>
+<nav>
+    <ul class="pagination">
+        <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+            <a href="?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+        </li>
+        <?php for($page = 1; $page <= $pages; $page++): ?>
+        <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+        <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+            <a href="?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+        </li>
+        <?php endfor ?>
+             <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+        <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+            <a href="?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+        </li>
+    </ul>
+</nav>
 </body>
 </html>
