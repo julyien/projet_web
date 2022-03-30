@@ -7,11 +7,6 @@ if ($_SESSION ["id_role"]!=3) {
     header("location: error.php");
     exit; // prevent further execution, should there be more code that follows
 }
-// do check
-if ($_SESSION ["id_role"]!=1) {
-    header("location: error.php");
-    exit; // prevent further execution, should there be more code that follows
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

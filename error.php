@@ -7,10 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <pre>
-    ta pa le droit
-
-    Rationia
-    </pre>
+    <h1>Accès refusé</h1>
 </body>
 </html>
