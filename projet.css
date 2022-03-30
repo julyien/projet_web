@@ -41,10 +41,15 @@ a:link {
     text-decoration:none;
 }
 
-body{
-    background-image: url(bleu.jpg);
-}
 
 h4{
     margin-left: 20px;
+}
+
+.bg{
+    position:fixed;
+    height: 100%;
+    width: 100%;
+    background-image: url(bleu.jpg);
+    z-index: -1;
 }
