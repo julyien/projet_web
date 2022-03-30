@@ -89,7 +89,7 @@ $dbname = "projetweb";
     session_start();
     $getid = intval($_SESSION['id_profil']);
     
-    foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation INNER JOIN wishlist ON offre.id_offre = wishlist.id_offre  WHERE  wishlist.id_profil = ?', array($getid)) as $row) {
+    foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation INNER JOIN wishlist ON offre.id_offre = wishlist.id_offre  WHERE  wishlist.id_profil = ? GROUP BY wishlist.id_offre', array($getid)) as $row) {
         echo '<br>';
         echo '<div class="c col-md-5 offset-md-1">';
         echo '<form class="form-horizontal" method="post">';
@@ -104,8 +104,13 @@ $dbname = "projetweb";
         echo ' <pre>Description du poste : </pre> <option value="' . $row['description_offre'] . '">' . $row['description_offre'] . '</option>';
         echo '<div class="b">';
         echo '<br>';
+        echo '<div class="a">';
+        echo '<a><button type="button">Postuler</button></a>';
+        echo "<a href='Statistiques.php?id_entreprise=" .$row['id_entreprise']."'>En savoir plus</a>";
+        echo ' </div>';
         echo '</div>';
         echo '</div>';
+        
     }
         
         ?>

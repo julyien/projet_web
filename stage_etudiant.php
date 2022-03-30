@@ -117,11 +117,13 @@ $sql = 'SELECT * FROM `offre` ORDER BY `id_offre` DESC LIMIT '.$premier.', 4';
 // On prépare la requête
 $req = $DB->query($sql);
 
+
 foreach ($req->fetchAll() as $row) {
 echo '<br>';
 echo '<div class="c col-6 mx-auto"  >';
 echo '<div class="brd">';
 echo '<div class="a"><button type="button">Favoris</button></div>';
+echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
 echo '<pre>Nom entreprise :</pre> <option value="' . $row['entreprise_offre'] . '">' . $row['entreprise_offre'] . '</option>';
 echo '<pre>Nom du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
 echo '<pre>Rémunération :</pre> <option value="' . $row['base_remuneration_offre'] . '">' . $row['base_remuneration_offre'] . '</option>';
