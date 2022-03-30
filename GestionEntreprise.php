@@ -41,6 +41,7 @@ $dbname = "projetweb";
  
 
 ?>
+<div class="bg"></div>
     <nav class="navbar navbar-expand navbar-dark topnav">
         <div class="container-fluid">
             <a class="active" href="/acceuil.php"><img src="logo.png" alt="logo" width="70"></a>

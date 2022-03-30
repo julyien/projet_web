@@ -26,6 +26,7 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
 </head>
 
 <body>
+<div class="bg"></div>
 
 <br> 
 
