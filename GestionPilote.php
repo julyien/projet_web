@@ -1,3 +1,13 @@
+<?php
+session_start(); // start session
+$getid = intval($_SESSION['id_role']);
+
+// do check
+if ($_SESSION ["id_role"]!=3) {
+    header("location: error.php");
+    exit; // prevent further execution, should there be more code that follows
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

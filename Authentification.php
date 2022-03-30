@@ -48,6 +48,7 @@ if(!empty($_POST)){
             $_SESSION['promotion_profil'] = $row['promotion_profil'];
             $_SESSION['id_centre'] = $row['id_centre'];
             $_SESSION['nom_centre'] = $row['nom_centre'];
+            $_SESSION['id_role'] = $row['id_role'];
             
             header('Location: acceuil.php');
             exit;
