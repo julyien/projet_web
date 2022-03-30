@@ -44,6 +44,7 @@ $dbname = "projetweb";
  
 
 ?>
+<div class="bg"></div>
     <nav class="navbar navbar-expand navbar-dark topnav">
         <div class="container-fluid">
             <a class="active" href="/acceuil.php"><img src="logo.png" alt="logo" width="70"></a>
@@ -62,7 +63,7 @@ $dbname = "projetweb";
                         <a class="nav-link" href="/ListeDeSouhait.php">Souhaits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Gestion_offre.php">Gestion</a>
+                        <a class="nav-link" href="/GestionOffre.php">Gestion</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/notification.php">Notifications</a>
@@ -140,10 +141,7 @@ echo ' </div>';
 echo '</div>';
 echo '</div>';
 echo '<br>';
-
-
-
-                        }
+}
 ?>
 </body>
 
