@@ -21,28 +21,7 @@
 
 <body>
 <?php
-
-
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projetweb";
-  
-  $conn = mysqli_connect($server,$username,$password,$dbname);
-
-            
         $sql = "SELECT * FROM profil";
-        $result = mysqli_query($conn,$sql);
-        $queryResults = mysqli_num_rows($result);
-
-        if ($queryResults > 0){
-            while ($row = mysqli_fetch_assoc($result)){
-                echo "<div class='profil-box'>
-                </div>";
-            }
-        }
- 
-
 ?>
 <div class="bg"></div>
     <nav class="navbar navbar-expand navbar-dark topnav">
@@ -114,28 +93,29 @@ $dbname = "projetweb";
             </div>
         </div>
         
+<?php
+
+session_start();
+$sql = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
+$getid = intval($_SESSION['id_profil']);
+$getidoffre = intval($row['id_offre']);
+$sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$dbh = "INSERT INTO wishlist (id_offre, id_profil) values('$getidoffre', '$getid')";
+$q = $sql->prepare($dbh);
+$q->execute(array($getidoffre,$getid));
+
+?>
 
 <?php 
-
-
-function candidate(){
-
-    session_start();
-    include('connexionDB.php'); 
-    $getid = intval($_SESSION['id_profil']);
-    $getidoffre = intval($row['id_offre']);
-    $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh=mysql_query("INSERT INTO wishlist (id_offre, id_profil) values (?, ?)");
-    $q = $sql->prepare($dbh);
-    $q->execute(array($getidoffre, $getid));
-    
-}
-
 
 foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation WHERE offre.id_entreprise=?', array($getid)) as $row) {
 echo '<br>';
 echo '<div class="c col-md-5 offset-md-1">';
-echo '<div class="a"><button onclick="wishlist()" >Favoris</button></div>';
+echo '<form class="form-horizontal" method="post">';
+echo '<div class="form-actions">';                
+echo '<button type="submit" class="btn btn-success">Favoris</button>';
+echo ' </div>';
+echo '</form>';
 echo '<h3>Offre</h3>';
 echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
 echo '<pre>Titre du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
