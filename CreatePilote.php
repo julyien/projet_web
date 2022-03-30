@@ -20,7 +20,7 @@
      $promotion_profil = $_POST['promotion_profil'];
      $identifiant_profil = $_POST['identifiant_profil'];
      $password_profil = $_POST['password_profil'];
-     $id_centre = $_POST['id_centre'];
+     $nom_centre = $_POST['nom_centre'];
      $id_role = 1;
 
 
@@ -54,7 +54,7 @@
         $valid = false;
     }
 
-    if (empty($id_centre)) {
+    if (empty($nom_centre)) {
         $CentreError = "Donner le centre du profil";
         $valid = false;
     }
@@ -62,9 +62,13 @@
      // insert data
      if ($valid) {
          $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+         $dbh = "SELECT id_centre FROM centre_formation WHERE nom_centre = ? limit 1";
+         $q = $sql->prepare($dbh);
+         $q->execute(array($nom_centre));
+         $nom_centre = $q->fetchColumn();
          $dbh = "INSERT INTO profil (nom_profil,prenom_profil,promotion_profil, identifiant_profil, password_profil, id_centre, id_role) values(?, ?, ?, ?, ?, ?, ?)";
          $q = $sql->prepare($dbh);
-         $q->execute(array($nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil, $id_centre, $id_role));
+         $q->execute(array($nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil, $nom_centre, $id_role));
          header('Location: GestionPilote.php');
      }
  }
@@ -97,7 +101,7 @@
 <div class="bg"></div>
 <div class="span10 offset1">
                     <div class="row">
-                        <h3>" Ajouter un profil</h3>
+                        <h3>" Ajouter un pilote</h3>
                     </div>             
                     <form class="form-horizontal" method="post">
                       <div class="control-group <?php echo !empty($NomError)?'error':'';?>">
@@ -105,7 +109,7 @@
                         <div class="controls">
                         <input type="text" name="nom_profil" 
                         id="nom_profil" class="form-control"
-                        placeholder='Nom du profil' value="<?php echo !empty($nom_profil)?$nom_profil:'';?>">
+                        placeholder='Nom du pilote' value="<?php echo !empty($nom_profil)?$nom_profil:'';?>">
                             <?php if (!empty($NomError)): ?>
                                 <span class="help-inline"><?php echo $NomError;?></span>
                             <?php endif; ?>
@@ -116,7 +120,7 @@
                         <div class="controls">
                         <input type="text" name="prenom_profil" 
                         id="prenom_profil" class="form-control"
-                        placeholder='Prenom du profil' value="<?php echo !empty($prenom_profil)?$prenom_profil:'';?>">
+                        placeholder='Prenom du pilote' value="<?php echo !empty($prenom_profil)?$prenom_profil:'';?>">
                             <?php if (!empty($PrenomError)): ?>
                                 <span class="help-inline"><?php echo $PrenomError;?></span>
                             <?php endif;?>
@@ -127,7 +131,7 @@
                         <div class="controls">
                         <input type="text" name="promotion_profil" 
                         id="promotion_profil" class="form-control"
-                        placeholder='Promotion du profil' value="<?php echo !empty($promotion_profil)?$promotion_profil:'';?>">
+                        placeholder='Promotion du pilote' value="<?php echo !empty($promotion_profil)?$promotion_profil:'';?>">
                             <?php if (!empty($PromoError)): ?>
                                 <span class="help-inline"><?php echo $PromoError;?></span>
                             <?php endif;?>
@@ -138,7 +142,7 @@
                         <div class="controls">
                         <input type="text" name="identifiant_profil" 
                         id="identifiant_profil" class="form-control"
-                        placeholder='Identifiant du profil' value="<?php echo !empty($identifiant_profil)?$identifiant_profil:'';?>">
+                        placeholder='Identifiant du pilote' value="<?php echo !empty($identifiant_profil)?$identifiant_profil:'';?>">
                             <?php if (!empty($IDError)): ?>
                                 <span class="help-inline"><?php echo $IDError;?></span>
                             <?php endif;?>
@@ -149,7 +153,7 @@
                         <div class="controls">
                         <input type="password" name="password_profil" 
                         id="password_profil" class="form-control"
-                        placeholder='Password du profil' value="<?php echo !empty($password_profil)?$password_profil:'';?>">
+                        placeholder='Password du pilote' value="<?php echo !empty($password_profil)?$password_profil:'';?>">
                             <?php if (!empty($PswError)): ?>
                                 <span class="help-inline"><?php echo $PswError;?></span>
                             <?php endif;?>
@@ -158,9 +162,9 @@
                       <div class="control-group <?php echo !empty($CentreError)?'error':'';?>">
                         <label class="control-label">Centre</label>
                         <div class="controls">
-                        <input type="text" name="id_centre" 
-                        id="id_centre" class="form-control"
-                        placeholder='ID du centre' value="<?php echo !empty($id_centre)?$id_centre:'';?>">
+                        <input type="text" name="nom_centre" 
+                        id="nom_centre" class="form-control"
+                        placeholder='Nom du centre' value="<?php echo !empty($nom_centre)?$nom_centre:'';?>">
                             <?php if (!empty($CentreError)): ?>
                                 <span class="help-inline"><?php echo $CentreError;?></span>
                             <?php endif;?>

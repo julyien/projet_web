@@ -6,56 +6,49 @@
      // keep track validation errors
    
      $IDError = null;
-     $entrpriseError = null;
      $dureeError = null;
      $remunerationError = null;
      $dateError = null;
      $nombreplaceError = null;
      $descriptionError = null;
-     $identrpriseError = null;
+     $entrepriseError = null;
 
      
       
      // keep track post values
     
      //$id_offre = $_POST['id_offre'];
-     $entreprise_offre = $_POST['entreprise_offre'];
      $duree_offre = $_POST['duree_offre'];
      $remuneration_offre = $_POST['base_remuneration_offre'];
      $date_offre = $_POST['date_offre'];
      $nombreplace_offre = $_POST['nombre_place_offre'];
      $description_offre = $_POST['description_offre'];
-     $identreprise_offre = $_POST['id_entreprise'];
+     $nom_entreprise = $_POST['nom_entreprise'];
+    // $entreprise_offre = $_POST['entreprise_offre'];
+     $nom_entreprise = $entreprise_offre;
      
 
       
      // validate input
      $valid = true;
-
-
-      
-     if (empty($entreprise_offre)) {
-         $entrpriseError = "Donner le prenom du profil";
-         $valid = false;
-     }
       
      if (empty($duree_offre)) {
-         $dureeError = "Donner la promo du profil";
+         $dureeError = "Donner la duree de l'offre"; 
          $valid = false;
      }
 
      if (empty($remuneration_offre)) {
-        $remunerationError = "Donner l'idantifiant' du profil";
+        $remunerationError = "Donner la remuneration de l'offre";
         $valid = false;
     }
 
     if (empty($date_offre)) {
-        $dateError = "Donner le mot de passe du profil";
+        $dateError = "Donner la date de l'offre";
         $valid = false;
     }
 
     if (empty($nombreplace_offre)) {
-        $nombreplaceError = "Donner l'id du centre de formation";
+        $nombreplaceError = "Donner le nombre de place de l'offre";
         $valid = false;
     }
 
@@ -64,17 +57,21 @@
         $valid = false;
     }
 
-    if (empty($identreprise_offre)) {
-        $identrpriseError = "Donner l'id du centre de formation";
+    if (empty($nom_entreprise)) {
+        $entrepriseError = "Donner le nom de l'entreprise";
         $valid = false;
     }
       
      // insert data
      if ($valid) {
          $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+         $dbh = "SELECT nom_entreprise FROM entreprise WHERE nom_entreprise = ? limit 1";
+         $q = $sql->prepare($dbh);
+         $q->execute(array($nom_entreprise));
+         $nom_entreprise = $q->fetchColumn();
          $dbh = "INSERT INTO offre (entreprise_offre,duree_offre,base_remuneration_offre, date_offre ,nombre_place_offre,description_offre,id_entreprise) values(?, ?, ?, ?, ?,?,?) ";
          $q = $sql->prepare($dbh);
-         $q->execute(array($entreprise_offre,$duree_offre,$remuneration_offre, $date_offre, $nombreplace_offre,$description_offre,$identreprise_offre));
+         $q->execute(array($entreprise_offre,$duree_offre,$remuneration_offre, $date_offre, $nombreplace_offre,$description_offre,$nom_entreprise));
          header('Location: GestionOffre.php');
      }
  }
@@ -106,17 +103,17 @@
 <div class="span10 offset1">
                     <div class="row">
                         <h3>Ajouter une offre</h3>
-                    </div>             
-                    <form class="form-horizontal" method="post">
-                      <div class="control-group <?php echo !empty($entrpriseError)?'error':'';?>">
+                    </div>         
+                    <form class="form-horizontal" method="post">    
+                    <div class="control-group <?php echo !empty($nom_entreprise)?'error':'';?>">
                         <label class="control-label">Nom de l'entreprise</label>
                         <div class="controls">
-                        <input type="text" name="entreprise_offre" 
-                        id="entreprise_offre" class="form-control"
-                        placeholder='Entreprise Offre' value="<?php echo !empty($entreprise_offre)?$entreprise_offre:'';?>">
-                            <?php if (!empty($entrpriseError)): ?>
-                                <span class="help-inline"><?php echo $entrpriseError;?></span>
-                            <?php endif; ?>
+                        <input type="text" name="nom_entreprise" 
+                        id="nom_entreprise" class="form-control"
+                        placeholder='Nom entreprise' value="<?php echo !empty($nom_entreprise)?$nom_entreprise:'';?>">
+                            <?php if (!empty($entrepriseError)): ?>
+                                <span class="help-inline"><?php echo $entrepriseError;?></span>
+                            <?php endif;?>
                         </div>
                       </div>
                       <div class="control-group <?php echo !empty($dureeError)?'error':'';?>">
@@ -174,15 +171,6 @@
                             <?php endif;?>
                         </div>
                       </div>
-                      <div class="control-group <?php echo !empty($identreprise_offre)?'error':'';?>">
-                        <label class="control-label">ID de l'entreprise</label>
-                        <div class="controls">
-                        <input type="text" name="id_entreprise" 
-                        id="id_entreprise" class="form-control"
-                        placeholder='ID entreprise' value="<?php echo !empty($identreprise_offre)?$identreprise_offre:'';?>">
-                            <?php if (!empty($identrpriseError)): ?>
-                                <span class="help-inline"><?php echo $identrpriseError;?></span>
-                            <?php endif;?>
                         </div>
                       </div>
                       <div class="form-actions">

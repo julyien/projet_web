@@ -19,7 +19,7 @@
      $promotion_profil = $_POST['promotion_profil'];
      $identifiant_profil = $_POST['identifiant_profil'];
      $password_profil = $_POST['password_profil'];
-     $id_centre = $_POST['nom_centre'];
+     $nom_centre = $_POST['nom_centre'];
      $id_role = 2;
 
 
@@ -53,7 +53,7 @@
         $valid = false;
     }
 
-    if (empty($id_centre)) {
+    if (empty($nom_centre)) {
         $CentreError = "Donner le centre du profil";
         $valid = false;
     }
@@ -63,11 +63,11 @@
          $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          $dbh = "SELECT id_centre FROM centre_formation WHERE nom_centre = ? limit 1";
          $q = $sql->prepare($dbh);
-         $q->execute(array($id_centre));
-        $id_centre = $q->fetchColumn();
+         $q->execute(array($nom_centre));
+        $nom_centre = $q->fetchColumn();
          $dbh = "INSERT INTO profil (nom_profil,prenom_profil,promotion_profil, identifiant_profil, password_profil,id_centre, id_role) values(?, ?,?, ?, ?, ?, ?)  ";
          $q = $sql->prepare($dbh);
-         $q->execute(array($nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil,$id_centre, $id_role));
+         $q->execute(array($nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil,$nom_centre, $id_role));
          header('Location: GestionEtudiant.php');
      }
  }
@@ -162,7 +162,7 @@
                         <div class="controls">
                         <input type="text" name="nom_centre" 
                         id="nom_centre" class="form-control"
-                        placeholder='ID du centre' value="<?php echo !empty($id_centre)?$id_centre:'';?>">
+                        placeholder='Nom du centre' value="<?php echo !empty($nom_centre)?$nom_centre:'';?>">
                             <?php if (!empty($CentreError)): ?>
                                 <span class="help-inline"><?php echo $CentreError;?></span>
                             <?php endif;?>
