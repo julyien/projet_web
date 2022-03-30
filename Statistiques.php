@@ -114,12 +114,26 @@ $dbname = "projetweb";
             </div>
         </div>
         
+
 <?php 
+
+
+function wishlist(){
+
+    session_start();
+    $getid = intval($_SESSION['id_profil']);
+    $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbh=mysql_query("INSERT INTO wishlist (id_profil) values ($getid)");
+    $q = $sql->prepare($dbh);
+    $q->execute(array());
+    
+}
+
 
 foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation WHERE offre.id_entreprise=?', array($getid)) as $row) {
 echo '<br>';
 echo '<div class="c col-md-5 offset-md-1">';
-echo '<div class="a"><button type="button">Favoris</button></div>';
+echo '<div class="a"><button id="btn" >Favoris</button></div>';
 echo '<h3>Offre</h3>';
 echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
 echo '<pre>Titre du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
