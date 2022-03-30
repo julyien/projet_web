@@ -97,12 +97,12 @@
 
 session_start();
 $sql = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
-$getid = intval($_SESSION['id_profil']);
+$getidprofil = intval($_SESSION['id_profil']);
 $getidoffre = intval($row['id_offre']);
 $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$dbh = "INSERT INTO wishlist (id_offre, id_profil) values('$getidoffre', '$getid')";
+$dbh = "INSERT INTO wishlist (id_offre, id_profil) values('$getidoffre', '$getidprofil')";
 $q = $sql->prepare($dbh);
-$q->execute(array($getidoffre,$getid));
+$q->execute(array($getidoffre,$getidprofil));
 
 ?>
 

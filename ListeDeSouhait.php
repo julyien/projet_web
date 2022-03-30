@@ -83,31 +83,31 @@ $dbname = "projetweb";
     <br>
     <br>
     <br>
-    <div class="c col-6 mx-auto"  >
-        <div class="brd">
-            <div class="a"><button type="button">Enlever des favoris</button></div>
-            <pre>Offre de Stages :</pre>
-            <pre>Nom entreprise</pre>
-            <pre>Nom du poste</pre>
-            <pre>Localisation</pre>
-            <div class="a">
-                <button type="button">Postuler</button> <button type="button">En savoir plus</button>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="c col-6 mx-auto">
-        <div class="brd">
-            <div class="a"><button type="button">Enlever des favoris</button></div>
-            <pre>Offre de Stages :</pre>
-            <pre>Nom entreprise</pre>
-            <pre>Nom du poste</pre>
-            <pre>Localisation</pre>
-            <div class="a">
-                <button type="button">Postuler</button> <button type="button">En savoir plus</button>
-            </div>
-        </div>
-    </div>
+    <?php 
+    
+    include('connexionDB.php'); 
+    session_start();
+    $getid = intval($_SESSION['id_profil']);
+    
+    foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation INNER JOIN wishlist ON offre.id_offre = wishlist.id_offre  WHERE  wishlist.id_profil = ?', array($getid)) as $row) {
+        echo '<br>';
+        echo '<div class="c col-md-5 offset-md-1">';
+        echo '<form class="form-horizontal" method="post">';
+        echo '<div class="form-actions">';                
+        echo '<button type="submit" class="btn btn-success">Favoris</button>';
+        echo '</form>';
+        echo '</div>';
+        echo '<h3>Offre</h3>';
+        echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
+        echo '<pre>Titre du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
+        echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
+        echo ' <pre>Description du poste : </pre> <option value="' . $row['description_offre'] . '">' . $row['description_offre'] . '</option>';
+        echo '<div class="b">';
+        echo '<br>';
+        echo '</div>';
+        echo '</div>';
+    }
+        
+        ?>
 </body>
 </html>
