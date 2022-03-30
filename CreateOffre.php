@@ -102,7 +102,7 @@
     </script>
 </head>
 <body>
-
+<div class="bg"></div>
 <div class="span10 offset1">
                     <div class="row">
                         <h3>Ajouter une offre</h3>

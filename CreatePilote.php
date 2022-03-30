@@ -93,7 +93,8 @@
 "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     </script>
 </head>
-
+<body>
+<div class="bg"></div>
 <div class="span10 offset1">
                     <div class="row">
                         <h3>" Ajouter un profil</h3>

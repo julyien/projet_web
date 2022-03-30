@@ -101,6 +101,7 @@ if ( !empty($_POST)) {
 </head>
 
 <body>
+<div class="bg"></div>
 <div>
 <div>
 <h3>Modifier un pilote</h3>

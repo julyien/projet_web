@@ -67,6 +67,7 @@ if ( !empty($_POST)) {
 </head>
 
 <body>
+<div class="bg"></div>
 <div>
 
 <div>

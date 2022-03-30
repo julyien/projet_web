@@ -110,6 +110,7 @@ if ( !empty($_POST)) {
  
 
 <body>
+<div class="bg"></div>
     <div>
 <h3>Modifier une offre</h3>
 </div>
