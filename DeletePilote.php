@@ -25,16 +25,20 @@ if ( !empty($_POST)) {
     // insert data
     if ($valid) {
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh = "DELETE FROM permission WHERE identifiant_profil = ?";    
+        $dbh = "SELECT id_profil FROM profil WHERE identifiant_profil = ? limit 1";
         $q = $sql->prepare($dbh);
         $q->execute(array($identifiant_profil));
-        $dbh = "DELETE FROM candidate WHERE identifiant_profil = ?";    
+        $identifiant_profil = $q->fetchColumn();
+        $dbh = "DELETE FROM permission WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($identifiant_profil));
-        $dbh = "DELETE FROM wishlist WHERE identifiant_profil = ?";    
+        $dbh = "DELETE FROM candidate WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($identifiant_profil));
-        $dbh = "DELETE FROM profil WHERE identifiant_profil = ?";    
+        $dbh = "DELETE FROM wishlist WHERE id_profil = ?";    
+        $q = $sql->prepare($dbh);
+        $q->execute(array($identifiant_profil));
+        $dbh = "DELETE FROM profil WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($identifiant_profil));
         header('Location: GestionPilote.php');

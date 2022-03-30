@@ -8,13 +8,13 @@ if ( !empty($_POST)) {
     
     // keep track post values
     
-    $id_entreprise = $_POST['id_entreprise'];
+    $nom_entreprise = $_POST['nom_entreprise'];
     
     // validate input
     $valid = true;
     
     
-    if (empty($id_entreprise)) {
+    if (empty($nom_entreprise)) {
         $IdError = "Donner l'ID de l'entreprise";
         $valid = false;
     }
@@ -24,19 +24,23 @@ if ( !empty($_POST)) {
     
     // insert data
     if ($valid) {
+        $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = "SELECT id_entreprise FROM entreprise WHERE nom_entreprise = ? limit 1";
+        $q = $sql->prepare($dbh);
+        $q->execute(array($nom_entreprise));
+        $nom_entreprise = $q->fetchColumn();
         $dbh = "DELETE FROM entreprise WHERE id_entreprise = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_entreprise));
-        $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $q->execute(array($nom_entreprise));
         $dbh = "DELETE FROM evalue WHERE id_entreprise = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_entreprise));
+        $q->execute(array($nom_entreprise));
         $dbh = "DELETE FROM offre WHERE id_entreprise = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_entreprise));
+        $q->execute(array($nom_entreprise));
         $dbh = "DELETE FROM se_situe WHERE id_entreprise = ?";    
         $q = $sql->prepare($dbh);
-        $q->execute(array($id_entreprise));
+        $q->execute(array($nom_entreprise));
  
         header('Location: GestionEntreprise.php');
     }
@@ -78,9 +82,9 @@ if ( !empty($_POST)) {
 
 <form class="form-horizontal" method="post">
 <div class="control-group <?php echo !empty($IdError)?'error':'';?>">
-<label class="control-label">Id Entreprise</label>
+<label class="control-label">Nom Entreprise</label>
 <div class="controls">
-<input name="id_entreprise" type="int"  placeholder="id_entreprise" value="<?php echo !empty($id_entreprise)?$id_entreprise:'';?>">
+<input name="nom_entreprise" type="int"  placeholder="nom_entreprise" value="<?php echo !empty($nom_entreprise)?$nom_entreprise:'';?>">
 <?php if (!empty($IdError)): ?>
     <span class="help-inline"><?php echo $IdError;?></span>
     <?php endif; ?>

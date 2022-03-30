@@ -69,7 +69,7 @@ if ( !empty($_POST)) {
     if ($valid) {
         $sql = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, identifiant_profil = ?, password_profil = ?, id_centre = ? WHERE id_profil = ?";
+        $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, identifiant_profil = ?, password_profil = ?, id_centre = ? WHERE id_profil = ? AND id_role = 1";
         $q = $sql->prepare($dbh);   
         $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil, $id_centre,$id_profil )); 
         header('Location: GestionPilote.php');
