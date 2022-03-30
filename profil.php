@@ -79,21 +79,39 @@
     </nav>
     <br>
     <br>
-    <div class="d col-4">
-    <i class="fa-solid fa-circle-user"></i>Bienvenue <?php echo $row['prenom_profil']; ?> !
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="brd">
+    <div class="d col-12">
+        <h2>
+    <i class="fa-solid fa-circle-user"></i> Bienvenue <?php echo $row['prenom_profil']; ?> !
+        <h2>
+    <br>
+    <br>
     <br>
     <br>
     </div>
     <div class="row">
         <div class="col-4 mx-auto">
+            <h3>
             <pre><i class="fa-solid fa-location-dot"></i>  Centre <?php echo $row['nom_centre']; ?></pre>
+            <br>
             <pre><i class="fa-solid fa-graduation-cap"></i> Promotion <?php echo $row['promotion_profil']; ?></pre>
+            <br>
             <pre><i class="fa-solid fa-percent"></i>  Statistique </pre>
+            </h3>
         </div>
-        <div class="col-7 mx-auto">
-            <pre><i class="fa-solid fa-file-pdf"></i><input type="file" accept="application/pdf,application/vnd.ms-excel">  Ajouter un cv</pre>
-            <pre><i class="fa-solid fa-file-pdf"></i><input type="file" accept="application/pdf,application/vnd.ms-excel">  Ajouter une lettre de motivation</pre>
+        <div class="col-4 mx-auto">
+            <h4>
+            <pre><i class="fa-solid fa-file-pdf"> </i><input type="file" accept="application/pdf,application/vnd.ms-excel"> <br> Ajouter un cv</pre>
+            <br>
+            <br>
+            <pre><i class="fa-solid fa-file-pdf"> </i><input type="file" accept="application/pdf,application/vnd.ms-excel"> <br> Ajouter une lettre de motivation</pre>
+            </h4>
         </div>
+    </div>
     </div>
 </body>
 </html>
