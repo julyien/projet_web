@@ -20,6 +20,31 @@
 </head>
 
 <body>
+
+<script language ="JavaScript">
+
+    var x=0;
+        
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                x+=1;
+            });
+        });
+
+        $(document).ready(function(){
+            $("#btn2").click(function(){
+                x-=1;
+            });
+        });
+
+        $(document).ready(function(){
+            $("#btn3").click(function(){
+
+                document.getElementById("btn3").innerHTML=x;
+            });
+        });
+</script>
+
 <?php
         $sql = "SELECT * FROM profil";
 ?>
@@ -86,6 +111,9 @@
                 <pre>Nom entreprise : <?php echo $row['nom_entreprise'] ?> </pre> 
                 <pre>Centre d'activité : <?php echo $row['centre_activite_entreprise'] ?> </pre>
                 <pre>Evaluation des utilisateurs :</pre>
+                <button id="btn3" >Note des utilisateurs</button>
+                <br>
+                <br>
                 <div class="c col-md-7 mx-auto">
                     <div class="brd">
                         Nombre d'étudiants ayant postulé chez cette entreprise : <?php echo $row['nombre_stagiaireCESI_entreprise'] ?>
@@ -121,7 +149,7 @@ echo '<pre>Base de rémunération : </pre> <option value="' . $row['base_remuner
 echo '<pre>Date offre : </pre> <option value="' . $row['date_offre'] . '">' . $row['date_offre'] . '</option>';
 echo '<pre>Nombre de place offertes aux étudiants : </pre> <option value="' . $row['nombre_place_offre'] . '">' . $row['nombre_place_offre'] . '</option>';
 echo '<br>';
-echo '<button type="button">Like</button> <button type="button">Dislike</button>';
+echo '<button id="btn">Like</button> <button id="btn2">Dislike</button>';
 echo '</div>';
 echo '<form action="Apply.php" class="form-horizontal" method="post">';
 echo '<div class="a">';
