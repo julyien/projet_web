@@ -1,6 +1,6 @@
 <?php
   
-$id_profil = $_REQUEST['id_profil'];
+$identifiant_profil = $_REQUEST['identifiant_profil'];
   
 $con = mysqli_connect("localhost", "root", "", "projetweb");
 
@@ -10,10 +10,10 @@ $con = mysqli_connect("localhost", "root", "", "projetweb");
    //$q->execute(array($nom_centre));
    //$nom_centre = $q->fetchColumn();  
 
-if ($id_profil !== "") {
+if ($identifiant_profil !== "") {
 
     $query = mysqli_query($con, "SELECT nom_profil, 
-    prenom_profil,promotion_profil,password_profil,id_centre FROM profil WHERE id_profil='$id_profil'");
+    prenom_profil,promotion_profil,password_profil,id_centre FROM profil WHERE identifiant_profil='$identifiant_profil'");
   
     $row = mysqli_fetch_array($query);
     $nom_profil = $row["nom_profil"];

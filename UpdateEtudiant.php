@@ -193,7 +193,7 @@ if ( !empty($_POST)) {
                 document.getElementById("nom_profil").value = "";
                 document.getElementById("prenom_profil").value = "";
                 document.getElementById("promotion_profil").value = "";
-                document.getElementById("identifiant_profil").value = "";
+               // document.getElementById("identifiant_profil").value = "";
                 document.getElementById("password_profil").value = "";
                 document.getElementById("nom_centre").value = "";
                 return;

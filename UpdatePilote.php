@@ -20,7 +20,7 @@ if ( !empty($_POST)) {
     $IdentifiantError = null;
     
     // keep track post values
-    $id_profil = $_POST['id_profil'];
+    //$id_profil = $_POST['id_profil'];
     $nom_profil = $_POST['nom_profil'];
     $prenom_profil = $_POST['prenom_profil'];
     $promotion_profil = $_POST['promotion_profil'];
@@ -77,7 +77,7 @@ if ( !empty($_POST)) {
         $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, password_profil = ?, id_centre = ? WHERE identifiant_profil = ? AND id_role = 1";
         $q = $sql->prepare($dbh);   
         $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $password_profil, $nom_centre,$identifiant_profil )); 
-        header('Location: GestionEtudiant.php');
+        header('Location: GestionPilote.php');
     }
 }
 ?>
@@ -109,8 +109,8 @@ if ( !empty($_POST)) {
 <div class="bg"></div>
 <div>
 <div>
-<h3>Modifier un Etudiant</h3>
-<form class="form-horizontal" action="UpdateEtudiant.php?id_profil=<?php echo $id_profil?>" method="post">
+<h3>Modifier un Pilote</h3>
+<form class="form-horizontal" action="UpdatePilote.php?id_profil=<?php echo $id_profil?>" method="post">
 <div class="control-group <?php echo !empty($IdentifiantError)?'error':'';?>">
 <label class="control-label">Identifiant Profil</label>
 <div class="controls">
@@ -181,7 +181,7 @@ if ( !empty($_POST)) {
                             </div>
                             <div>
                             <button type="submit" class="btn btn-success">Update</button>
-                            <a class="btn" href="GestionEtudiant.php">Back</a>
+                            <a class="btn" href="GestionPilote.php">Back</a>
                             </div>
                             </form>
                             </div>
@@ -193,7 +193,7 @@ if ( !empty($_POST)) {
                 document.getElementById("nom_profil").value = "";
                 document.getElementById("prenom_profil").value = "";
                 document.getElementById("promotion_profil").value = "";
-                document.getElementById("identifiant_profil").value = "";
+              //  document.getElementById("identifiant_profil").value = "";
                 document.getElementById("password_profil").value = "";
                 document.getElementById("nom_centre").value = "";
                 return;
@@ -222,7 +222,7 @@ if ( !empty($_POST)) {
                     }
                 };
   
-                xmlhttp.open("GET", "autoaddProfil.php?id_profil=" + str, true);
+                xmlhttp.open("GET", "autoaddProfil.php?identifiant_profil=" + str, true);
                   
                 xmlhttp.send();
             }
