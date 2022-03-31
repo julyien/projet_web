@@ -1,8 +1,10 @@
 <?php
 
-$id_profil = null;
-if ( !empty($_GET['id_profil'])) {
-    $id_profil = $_POST['id_profil'];
+$sql = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
+
+$identifiant_profil = null;
+if ( !empty($_GET['identifiant_profil'])) {
+    $identifiant_profil = $_POST['identifiant_profil'];
 }
 
 
@@ -24,15 +26,15 @@ if ( !empty($_POST)) {
     $promotion_profil = $_POST['promotion_profil'];
     $identifiant_profil = $_POST['identifiant_profil'];
     $password_profil = $_POST['password_profil'];
-    $id_centre = $_POST['id_centre'];
+    $nom_centre = $_POST['nom_centre'];
     
     // validate input
     $valid = true;
     
-    if (empty($id_profil)) {
-        $IdError = "Donner l'ID du Profil";
-        $valid = false;
-    }
+   // if (empty($id_profil)) {
+   //     $IdError = "Donner l'ID du Profil";
+   //     $valid = false;
+   // }
     
     if (empty($nom_profil)) {
         $NomError = "Donner le nom du Profil";
@@ -50,7 +52,7 @@ if ( !empty($_POST)) {
     }
     
     if (empty($identifiant_profil)) {
-        $IdentifiantError = "Donner l'idantifiant' du profil";
+        $IdentifiantError = "Donner l'identifiant du profil";
         $valid = false;
     }
     
@@ -59,20 +61,23 @@ if ( !empty($_POST)) {
         $valid = false;
     }
     
-    if (empty($id_centre)) {
-        $CentreError = "Donner l'id du centre du profil";
+    if (empty($nom_centre)) {
+        $CentreError = "Donner le nom du centre du profil";
         $valid = false;
     }
 
     
     // update data
     if ($valid) {
-        $sql = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, identifiant_profil = ?, password_profil = ?, id_centre = ? WHERE id_profil = ? AND id_role = 1";
+        $dbh = "SELECT id_centre FROM centre_formation WHERE nom_centre = ? limit 1";
+        $q = $sql->prepare($dbh);
+        $q->execute(array($nom_centre));
+       $nom_centre = $q->fetchColumn();
+        $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, password_profil = ?, id_centre = ? WHERE identifiant_profil = ? AND id_role = 1";
         $q = $sql->prepare($dbh);   
-        $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil, $id_centre,$id_profil )); 
-        header('Location: GestionPilote.php');
+        $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $password_profil, $nom_centre,$identifiant_profil )); 
+        header('Location: GestionEtudiant.php');
     }
 }
 ?>
@@ -104,17 +109,17 @@ if ( !empty($_POST)) {
 <div class="bg"></div>
 <div>
 <div>
-<h3>Modifier un pilote</h3>
-<form class="form-horizontal" action="UpdatePilote.php?id_profil=<?php echo $id_profil?>" method="post">
-<div class="control-group <?php echo !empty($IdError)?'error':'';?>">
-<label class="control-label">ID Profil</label>
+<h3>Modifier un Etudiant</h3>
+<form class="form-horizontal" action="UpdateEtudiant.php?id_profil=<?php echo $id_profil?>" method="post">
+<div class="control-group <?php echo !empty($IdentifiantError)?'error':'';?>">
+<label class="control-label">Identifiant Profil</label>
 <div class="controls">
-<input type='text' name="id_profil" 
-                        id='id_profil' class='form-control'
-                        placeholder='Entrer id profil'
-                        onkeyup="GetDetail(this.value)" value="<?php echo !empty($id_profil)?$id_profil:'';?>">
-<?php if (!empty($IdError)): ?>
-    <span class="help-inline"><?php echo $IdError;?></span>
+<input type='text' name="identifiant_profil" 
+                        id='identifiant_profil' class='form-control'
+                        placeholder='Entrer identifiant'
+                        onkeyup="GetDetail(this.value)" value="<?php echo !empty($identifiant_profil)?$identifiant_profil:'';?>">
+<?php if (!empty($IdentifiantError)): ?>
+    <span class="help-inline"><?php echo $IdentifiantError;?></span>
     <?php endif; ?>
     </div>
     <div class="control-group <?php echo !empty($NomError)?'error':'';?>">
@@ -150,16 +155,6 @@ if ( !empty($_POST)) {
                 <?php endif;?>
                 </div>
                 </div>
-                <div class="control-group <?php echo !empty($IDError)?'error':'';?>">
-                <label class="control-label">Identifiant Profil</label>
-                <div class="controls">
-                <input type="text" name="identifiant_profil" 
-                        id="identifiant_profil" class="form-control"
-                        placeholder='Identifiant du profil' value="<?php echo !empty($identifiant_profil)?$identifiant_profil:'';?>">
-                <?php if (!empty($IdentifiantError)): ?>
-                    <span class="help-inline"><?php echo $IdentifiantError;?></span>
-                    <?php endif;?>
-                    </div>
                     </div>
                     <div class="control-group <?php echo !empty($PswError)?'error':'';?>">
                     <label class="control-label">Mot de passe</label>
@@ -173,19 +168,20 @@ if ( !empty($_POST)) {
                         </div>
                         </div>
                         <div class="control-group <?php echo !empty($CentreError)?'error':'';?>">
-                        <label class="control-label">Centre</label>
+                        <label class="control-label">Nom du Centre</label>
                         <div class="controls">
-                        <input type="text" name="id_centre" 
-                        id="id_centre" class="form-control"
-                        placeholder='ID du centre'  value="<?php echo !empty($id_centre)?$id_centre:'';?>">
+                        <input type="text" name="nom_centre" 
+                        id="nom_centre" class="form-control"
+                        placeholder='Nom du centre'  value="<?php echo !empty($nom_centre)?$nom_centre:'';?>">
                         <?php if (!empty($CentreError)): ?>
                             <span class="help-inline"><?php echo $CentreError;?></span>
                             <?php endif;?>
                             </div>
                             </div>
+                            </div>
                             <div>
                             <button type="submit" class="btn btn-success">Update</button>
-                            <a class="btn" href="GestionPilote.php">Back</a>
+                            <a class="btn" href="GestionEtudiant.php">Back</a>
                             </div>
                             </form>
                             </div>
@@ -199,7 +195,7 @@ if ( !empty($_POST)) {
                 document.getElementById("promotion_profil").value = "";
                 document.getElementById("identifiant_profil").value = "";
                 document.getElementById("password_profil").value = "";
-                document.getElementById("id_centre").value = "";
+                document.getElementById("nom_centre").value = "";
                 return;
             }
             else {
@@ -217,12 +213,12 @@ if ( !empty($_POST)) {
                             ("prenom_profil").value = myObj[1];
                         document.getElementById
                             ("promotion_profil").value = myObj[2];
+                       // document.getElementById
+                       //    ("identifiant_profil").value = myObj[3];
                         document.getElementById
-                            ("identifiant_profil").value = myObj[3];
+                            ("password_profil").value = myObj[3];
                         document.getElementById
-                            ("password_profil").value = myObj[4];
-                        document.getElementById
-                            ("id_centre").value = myObj[5];
+                            ("nom_centre").value = myObj[4];
                     }
                 };
   
