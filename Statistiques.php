@@ -46,6 +46,8 @@
 </script>
 
 <?php
+
+session_start();
         $sql = "SELECT * FROM profil";
 ?>
 <div class="bg"></div>
@@ -128,7 +130,7 @@
 <?php 
 
 
-session_start();
+
 
 foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation WHERE offre.id_entreprise=?', array($getid)) as $row) {
 echo '<br>';
