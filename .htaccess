@@ -1,0 +1,4 @@
+AuthName "Page d'administration protégée, veuillez vous identifier"
+AuthType Basic
+AuthUserFile "D:/travail/WEB/XAMPP/htdocs/www/projet/final/.htpasswd"
+Require valid-user
