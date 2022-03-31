@@ -50,7 +50,7 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
         $result = mysqli_query($conn, $sql);
         $queryResult = mysqli_num_rows($result);
 
-        echo "Il y a ".$queryResult." resultat";
+        echo "Il y a ".$queryResult." resultat profil(s)";
 
         if ($queryResult > 0){
             while ($row = mysqli_fetch_assoc($result)){
@@ -58,10 +58,47 @@ $conn = mysqli_connect($server,$username,$password,$dbname);
                 <h3>".$row['identifiant_profil']."</h3>
                 </div></a>";
             }
+        } 
+    }
+    if (isset($_POST['nom_offre'])){
+
+        $search = mysqli_real_escape_string($conn,$_POST['nom_offre']);
+        $sql = "SELECT * FROM offre WHERE nom_offre LIKE '%$search%'";
+        $result = mysqli_query($conn, $sql);
+        $queryResult = mysqli_num_rows($result);
+
+        echo "Il y a ".$queryResult." resultat offre(s)";
+
+        if ($queryResult > 0){
+            while ($row = mysqli_fetch_assoc($result)){
+                echo "<a href='Statistiques.php?id_entreprise=" .$row['id_entreprise']."'><div class='profil-box'>
+                <h3>".$row['nom_offre']."</h3>
+                </div></a>";
+            }
         } else {
             "No Result";
         }
     }
+
+    if (isset($_POST['nom_entreprise'])){       
+        $search = mysqli_real_escape_string($conn,$_POST['nom_entreprise']);
+        $sql = "SELECT * FROM entreprise WHERE nom_entreprise LIKE '%$search%'";
+        $result = mysqli_query($conn, $sql);
+        $queryResult = mysqli_num_rows($result);
+
+        echo "Il y a ".$queryResult." resultat entreprise(s)";
+
+        if ($queryResult > 0){
+            while ($row = mysqli_fetch_assoc($result)){
+                echo "<a href='Statistiques.php?id_entreprise=" .$row['id_entreprise']."'><div class='profil-box'>
+                <h3>".$row['nom_entreprise']."</h3>
+                </div></a>";
+            }
+        } else {
+            "No Result";
+        }
+    }
+
 ?>
          </div>
     </div>
