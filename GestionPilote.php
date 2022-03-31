@@ -52,10 +52,13 @@ $dbname = "projetweb";
 
 ?>
 <div class="bg"></div>
-    <nav class="navbar navbar-expand navbar-dark topnav">
+<nav class="navbar navbar-expand-md navbar-dark topnav">
         <div class="container-fluid">
             <a class="active" href="/acceuil.php"><img src="logo.png" alt="logo" width="70"></a>
-            <div class="collapse navbar-collapse ms-2">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <form action="search.php" method="POST">
                     <input class="form-control" type="text" name="identifiant_profil" placeholder="Search" aria-label="Search">
                 </form>
@@ -108,5 +111,6 @@ $dbname = "projetweb";
             <pre>Modifier un pilote    <a  class="CouleurLien"  href="UpdatePilote.php"> Modifier  </a></pre>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
