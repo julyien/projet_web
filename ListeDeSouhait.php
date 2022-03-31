@@ -87,13 +87,15 @@ $dbname = "projetweb";
     
     include('connexionDB.php'); 
     session_start();
-    $getid = intval($_SESSION['id_profil']);
+    $getidprofil = intval($_SESSION['id_profil']);
     
     
-    foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation INNER JOIN wishlist ON offre.id_offre = wishlist.id_offre  WHERE  wishlist.id_profil = ? GROUP BY wishlist.id_offre', array($getid)) as $row) {
+    
+    
+    foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation INNER JOIN wishlist ON offre.id_offre = wishlist.id_offre  WHERE  wishlist.id_profil = ? GROUP BY wishlist.id_offre', array($getidprofil)) as $row) {
         echo '<br>';
         echo '<div class="c col-md-5 offset-md-1">';
-        echo '<form class="form-horizontal" method="post">';
+        echo '<form action="DeleteWishlist.php" class="form-horizontal" method="post">';
         echo '<div class="form-actions">';                
         echo '<button type="submit" class="btn btn-success">Favoris</button>';
         echo '</form>';
@@ -111,9 +113,11 @@ $dbname = "projetweb";
         echo ' </div>';
         echo '</div>';
         echo '</div>';
+        $_SESSION['id_offre'] = $row['id_offre'];
         
     }
         
         ?>
+
 </body>
 </html>
