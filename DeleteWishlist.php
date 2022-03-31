@@ -7,6 +7,7 @@
 
 
         $req = $DB->query("DELETE FROM wishlist WHERE id_offre = ? AND id_profil = ?", array($getidoffre, $getidprofil));
+        header('Location: ListeDeSouhait.php');
  
         ?>
 
