@@ -95,24 +95,14 @@
         
 
 <?php 
-    
 
 
 session_start();
-$sql = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
-$getidprofil = intval($_SESSION['id_profil']);
-$getidoffre = intval($row['id_offre']);
-$sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$dbh = "INSERT INTO wishlist (id_offre, id_profil) values('$getidoffre', '$getidprofil')";
-$q = $sql->prepare($dbh);
-$q->execute(array($getidoffre,$getidprofil));
-
-
 
 foreach ($DB->query('SELECT * FROM offre INNER JOIN se_situe ON offre.id_offre = se_situe.id_offre INNER JOIN localisation ON se_situe.id_localisation = localisation.id_localisation WHERE offre.id_entreprise=?', array($getid)) as $row) {
 echo '<br>';
 echo '<div class="c col-md-5 offset-md-1">';
-echo '<form class="form-horizontal" method="post">';
+echo '<form action="AddWishlist.php" class="form-horizontal" method="post">';
 echo '<div class="form-actions">';                
 echo '<button type="submit" class="btn btn-success" >Favoris</button>';
 echo ' </div>';
@@ -141,6 +131,9 @@ echo '</div>';
 echo '</div>';
 echo '<br>';
 }
+
+$_SESSION['id_offre'] = $row['id_offre'];
+
 ?>
 </body>
 

@@ -122,7 +122,11 @@ foreach ($req->fetchAll() as $row) {
 echo '<br>';
 echo '<div class="c col-6 mx-auto"  >';
 echo '<div class="brd">';
-echo '<div class="a"><button type="button">Favoris</button></div>';
+echo '<form action="AddWishlist.php" class="form-horizontal" method="post">';
+echo '<div class="form-actions">';      
+echo '<div class="a"><button type="button" >Favoris</button></div>';
+echo '</div>';
+echo '</form>';
 echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
 echo '<pre>Nom entreprise :</pre> <option value="' . $row['entreprise_offre'] . '">' . $row['entreprise_offre'] . '</option>';
 echo '<pre>Nom du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
@@ -135,6 +139,8 @@ echo ' </div>';
 echo '</div>';
 echo '</div>';
 echo '<br>';
+
+$_SESSION['id_offre'] = $row['id_offre'];
 }
 ?>
 <nav>
