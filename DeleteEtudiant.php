@@ -30,8 +30,8 @@ if ( !empty($_POST)) {
         $q->execute(array($identifiant_profil));
         $identifiant_profil = $q->fetchColumn();
 
-        $dbh = "SELECT identifiant_profil FROM profil";
-        if ($dbh ) 
+        //$dbh = "SELECT identifiant_profil FROM profil";
+        //if ($dbh ) 
 
         $dbh = "DELETE FROM permission WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
@@ -46,7 +46,7 @@ if ( !empty($_POST)) {
         $q = $sql->prepare($dbh);
         $q->execute(array($identifiant_profil));
         
-        header('Location: GestionEtudiant.php?error');
+       // header('Location: GestionEtudiant.php?error');
     }
 }
 
