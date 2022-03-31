@@ -130,9 +130,11 @@ echo ' </div>';
 echo '</div>';
 echo '</div>';
 echo '<br>';
-}
 
 $_SESSION['id_offre'] = $row['id_offre'];
+}
+
+
 
 ?>
 </body>

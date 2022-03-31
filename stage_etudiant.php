@@ -117,6 +117,7 @@ $sql = 'SELECT * FROM `offre` ORDER BY `id_offre` DESC LIMIT '.$premier.', 4';
 // On prépare la requête
 $req = $DB->query($sql);
 
+session_start();
 
 foreach ($req->fetchAll() as $row) {
 echo '<br>';
@@ -124,7 +125,7 @@ echo '<div class="c col-6 mx-auto"  >';
 echo '<div class="brd">';
 echo '<form action="AddWishlist.php" class="form-horizontal" method="post">';
 echo '<div class="form-actions">';      
-echo '<div class="a"><button type="button" >Favoris</button></div>';
+echo '<button type="submit" class="btn btn-success" >Favoris</button>';
 echo '</div>';
 echo '</form>';
 echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
@@ -142,6 +143,8 @@ echo '<br>';
 
 $_SESSION['id_offre'] = $row['id_offre'];
 }
+
+
 ?>
 <nav>
     <ul class="pagination">
