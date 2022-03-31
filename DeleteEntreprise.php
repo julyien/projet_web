@@ -15,7 +15,7 @@ if ( !empty($_POST)) {
     
     
     if (empty($nom_entreprise)) {
-        $IdError = "Donner l'ID de l'entreprise";
+        $IdError = "Donner le nom de l'entreprise";
         $valid = false;
     }
     

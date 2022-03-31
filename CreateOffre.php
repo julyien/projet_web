@@ -188,6 +188,16 @@
                                 <span class="help-inline"><?php echo $descriptionError;?></span>
                             <?php endif;?>
                         </div>
+                        <div class="control-group <?php echo !empty($NomEntrepriseError)?'error':'';?>">
+                        <label class="control-label">Nom de l'Entreprise</label>
+                        <div class="controls">
+                        <input type="text" name="nom_entreprise" 
+                        id="nom_entreprise" class="form-control"
+                        placeholder='Nom entreprise' value="<?php echo !empty($nom_entreprise)?$nom_entreprise:'';?>">
+                        <?php if (!empty($NomEntrepriseError)): ?>
+                            <span class="help-inline"><?php echo $NomEntrepriseError;?></span>
+                            <?php endif;?>
+                            </div>
                       </div>
                         </div>
                       </div>

@@ -40,10 +40,10 @@ if ( !empty($_POST)) {
         $valid = false;
     }
     
-    if (empty($nombre_stagiaireCESI_entreprise)) {
-        $StagiaireError = "Donner le nombre de stagiaire de l'entreprise";
-        $valid = false;
-    }
+  //  if (empty($nombre_stagiaireCESI_entreprise)) {
+  //      $StagiaireError = "Donner le nombre de stagiaire de l'entreprise";
+  //     $valid = false;
+  //      }
     
     
     // update data

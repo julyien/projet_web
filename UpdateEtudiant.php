@@ -11,30 +11,30 @@ if ( !empty($_GET['identifiant_profil'])) {
 
 if ( !empty($_POST)) {
     // keep track validation errors
+    $IdError = null;
     $NomError = null;
     $PrenomError = null;
     $PromoError = null;
-    $IdError = null;
     $PswError= null;
     $CentreError = null;
     $IdentifiantError = null;
     
     // keep track post values
-    $id_profil = $_POST['id_profil'];
+    //$id_profil = $_POST['id_profil'];
     $nom_profil = $_POST['nom_profil'];
     $prenom_profil = $_POST['prenom_profil'];
     $promotion_profil = $_POST['promotion_profil'];
-    $identifiant_profil = $_POST['identifiant_profil'];
+    //$identifiant_profil = $_POST['identifiant_profil'];
     $password_profil = $_POST['password_profil'];
     $nom_centre = $_POST['nom_centre'];
     
     // validate input
     $valid = true;
     
-   // if (empty($id_profil)) {
-   //     $IdError = "Donner l'ID du Profil";
-   //     $valid = false;
-   // }
+    //if ($id_profil != 2 ) {
+    //    $IdError = "Ceci est la page pour modifier les informations des étudiants, le profil que vous essayez de changez n'en est pas un !";
+    //    $valid = false;
+    //}
     
     if (empty($nom_profil)) {
         $NomError = "Donner le nom du Profil";
@@ -177,6 +177,10 @@ if ( !empty($_POST)) {
                             <span class="help-inline"><?php echo $CentreError;?></span>
                             <?php endif;?>
                             </div>
+                            <div class="control-group <?php echo !empty($IdentifiantError)?'error':'';?>">
+                            <?php if (!empty($IdError)): ?>
+                            <span class="help-inline"><?php echo $IdError;?></span>
+                            <?php endif; ?>
                             </div>
                             </div>
                             <div>
