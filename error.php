@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>Accès refusé</h1>
+    <a href="acceuil.php">Retour en arrière</a>
 </body>
 </html>
