@@ -112,7 +112,7 @@ $pages = ceil($nbArticles / $parPage);
 // Calcul du 1er article de la page
 $premier = (($currentPage-1) * $parPage);
 
-$sql = 'SELECT * FROM `offre` ORDER BY `id_offre` DESC LIMIT '.$premier.', 4';
+$sql = 'SELECT * FROM `offre` INNER JOIN entreprise ON offre.id_entreprise = entreprise.id_entreprise ORDER BY `id_offre` DESC LIMIT '.$premier.', 4';
 
 // On prépare la requête
 $req = $DB->query($sql);
@@ -129,7 +129,7 @@ echo '<button type="submit" class="btn-success" >Favoris</button>';
 echo '</div>';
 echo '</form>';
 echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
-echo '<pre>Nom entreprise :</pre> <option value="' . $row['entreprise_offre'] . '">' . $row['entreprise_offre'] . '</option>';
+echo '<pre>Nom entreprise :</pre> <option value="' . $row['nom_entreprise'] . '">' . $row['nom_entreprise'] . '</option>';
 echo '<pre>Nom du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
 echo '<pre>Rémunération :</pre> <option value="' . $row['base_remuneration_offre'] . '">' . $row['base_remuneration_offre'] . '</option>';
 echo '<pre>Date :</pre> <option value="' . $row['date_offre'] . '">' . $row['date_offre'] . '</option>';
