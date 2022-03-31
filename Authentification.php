@@ -3,7 +3,7 @@ session_start();
 include('connexionDB.php'); // Fichier PHP contenant la connexion à votre BDD
 require_once('connexionDB.php');
 
-
+error_reporting(0);
 
 if(!empty($_POST)){
     $Pseudo= $_POST['identifiant_profil'];
