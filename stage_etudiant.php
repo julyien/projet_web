@@ -136,11 +136,11 @@ echo '<div class="form-actions">';
 echo '<button type="submit" class="btn-success" >Favoris</button>';
 echo '</div>';
 echo '</form>';
-echo '<pre>ID Offre :</pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
-echo '<pre>Nom entreprise :</pre> <option value="' . $row['nom_entreprise'] . '">' . $row['nom_entreprise'] . '</option>';
-echo '<pre>Nom du poste :</pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
-echo '<pre>Rémunération :</pre> <option value="' . $row['base_remuneration_offre'] . '">' . $row['base_remuneration_offre'] . '</option>';
-echo '<pre>Date :</pre> <option value="' . $row['date_offre'] . '">' . $row['date_offre'] . '</option>';
+echo '<pre><strong>ID Offre :</strong></pre> <option value="' . $row['id_offre'] . '">' . $row['id_offre'] . '</option>';
+echo '<pre><strong>Nom entreprise :</strong></pre> <option value="' . $row['nom_entreprise'] . '">' . $row['nom_entreprise'] . '</option>';
+echo '<pre><strong>Nom du poste :</strong></pre> <option value="' . $row['nom_offre'] . '">' . $row['nom_offre'] . '</option>';
+echo '<pre><strong>Rémunération :</strong></pre> <option value="' . $row['base_remuneration_offre'] . '">' . $row['base_remuneration_offre'] . '</option>';
+echo '<pre><strong>Date :</strong></pre> <option value="' . $row['date_offre'] . '">' . $row['date_offre'] . '</option>';
 echo '<form action="Apply.php" class="form-horizontal" method="post">';
 echo '<div class="a">';
 echo '<div class="form-actions">';    
@@ -159,6 +159,7 @@ $_SESSION['id_offre'] = $row['id_offre'];
 
 ?>
 <nav>
+    <div class="col-3 mx-auto">
     <ul class="pagination">
         <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
         <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
@@ -175,6 +176,7 @@ $_SESSION['id_offre'] = $row['id_offre'];
             <a href="?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
         </li>
     </ul>
+    </div>
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
