@@ -1,4 +1,4 @@
-<?php
+<?php                                                                            // Cette page permet d'ajouter automatiquement les données des pilotes une fois que l'on a rentré l'indentifiant
   
 $identifiant_profil = $_REQUEST['identifiant_profil'];
   

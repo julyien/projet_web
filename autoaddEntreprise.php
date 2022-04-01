@@ -1,4 +1,4 @@
-<?php
+<?php                                           // Cette page permet d'auto ajouter les données dans la section "modifier" des entreprises, cela sert a ne pas tout réécrire a chaques fois
   
 $nom_entreprise = $_REQUEST['nom_entreprise'];
   

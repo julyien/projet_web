@@ -1,14 +1,9 @@
-<?php
+<?php                                                                       // Cette page permet d'ajouter automatiquement les données des étudiants une fois que l'on a rentré l'indentifiant  
   
 $identifiant_profil = $_REQUEST['identifiant_profil'];
   
 $con = mysqli_connect("localhost", "root", "", "projetweb");
 
-   //$sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   //$dbh = "SELECT id_centre FROM centre_formation WHERE nom_centre = ? limit 1";
-   //$q = $sql->prepare($dbh);
-   //$q->execute(array($nom_centre));
-   //$nom_centre = $q->fetchColumn();  
 
 if ($identifiant_profil !== "") {
 
