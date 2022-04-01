@@ -104,15 +104,6 @@
                         <h3>" Ajouter une offre</h3>
                     </div>         
                     <form class="form-horizontal" method="post">    
-                        <div class="control-group <?php echo !empty($nom_entreprise)?'error':'';?>">
-                            <label class="control-label">Nom de l'entreprise</label>
-                            <div class="controls">
-                                <input type="text" name="nom_entreprise" id="nom_entreprise" class="form-control"
-                                placeholder='Nom entreprise' value="<?php echo !empty($nom_entreprise)?$nom_entreprise:'';?>">
-                                <?php if (!empty($entrepriseError)): ?>
-                                <span class="help-inline"><?php echo $entrepriseError;?></span>
-                                <?php endif;?>
-                            </div>
                         <div class="control-group <?php echo !empty($nom_offre)?'error':'';?>">
                             <label class="control-label">Nom de l'offre</label>
                             <div class="controls">

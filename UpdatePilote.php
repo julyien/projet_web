@@ -66,7 +66,18 @@ if ( !empty($_POST)) {
         $dbh = "SELECT id_centre FROM centre_formation WHERE nom_centre = ? limit 1";
         $q = $sql->prepare($dbh);
         $q->execute(array($nom_centre));
-       $nom_centre = $q->fetchColumn();
+        $nom_centre = $q->fetchColumn();
+
+       //$dbh = "SELECT id_profil FROM profil WHERE identifiant_profil = ? limit 1";
+       //$q = $sql->prepare($dbh);
+       //$q->execute(array($identifiant_profil));
+       //$identifiant_profil = $q->fetchColumn();
+
+       //if($identifiant_profil == false  ){
+       //    header('Location: GestionPilote.php?error=update');
+       //    exit();
+       //}
+
         $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, password_profil = ?, id_centre = ? WHERE identifiant_profil = ? AND id_role = 1";
         $q = $sql->prepare($dbh);   
         $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $password_profil, $nom_centre,$identifiant_profil )); 

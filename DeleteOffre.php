@@ -23,6 +23,10 @@ if ( !empty($_POST)) {
     if ($valid) {
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        $dbh = "SELECT id_offre FROM offre WHERE id_offre = ? limit 1";
+        $q = $sql->prepare($dbh);
+        $q->execute(array($id_offre));
+        $id_offre = $q->fetchColumn();
         if($id_offre == false  ){
             header('Location: GestionOffre.php?error=delete');
             exit();
