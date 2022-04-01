@@ -13,7 +13,7 @@ $con = mysqli_connect("localhost", "root", "", "projetweb");
 if ($identifiant_profil !== "") {
 
     $query = mysqli_query($con, "SELECT nom_profil, 
-    prenom_profil,promotion_profil,password_profil,id_centre FROM profil WHERE identifiant_profil='$identifiant_profil'");
+    prenom_profil,promotion_profil,password_profil,id_centre FROM profil WHERE identifiant_profil='$identifiant_profil' AND id_role = 1");
   
     $row = mysqli_fetch_array($query);
     $nom_profil = $row["nom_profil"];

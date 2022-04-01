@@ -195,7 +195,7 @@ if ( !empty($_POST)) {
                                         ("nom_centre").value = myObj[4];
                                 }
                             };
-                        xmlhttp.open("GET", "autoaddProfil.php?identifiant_profil=" + str, true);
+                        xmlhttp.open("GET", "autoaddPilote.php?identifiant_profil=" + str, true);
                         xmlhttp.send();
                     }
                 }

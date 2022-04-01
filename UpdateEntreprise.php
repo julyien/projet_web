@@ -129,7 +129,7 @@ if ( !empty($_POST)) {
                                     ("nombre_stagiaireCESI_entreprise").value = myObj[1];
                             }
                         };
-                        xmlhttp.open("GET", "autoaddEntreprise.php?id_entreprise=" + str, true);  
+                        xmlhttp.open("GET", "autoaddEntreprise.php?nom_entreprise=" + str, true);  
                         xmlhttp.send();
                     }
                 }
