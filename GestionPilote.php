@@ -60,14 +60,14 @@ $dbname = "projetweb";
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <form action="search.php" method="POST">
+            <form action="search.php" method="POST">
                     <input class="form-control" type="text" name="identifiant_profil" placeholder="Search Profil" aria-label="Search">
                 </form>
                 <form action="search.php" method="POST">
-                    <input class="form-control" type="text" name="nom_offre" placeholder="Search Offre" aria-label="Search">
+                    <input class="form-control" type="text" name="nom_offre" placeholder="Search Offers" aria-label="Search">
                 </form>
                 <form action="search.php" method="POST">
-                    <input class="form-control" type="text" name="nom_entreprise" placeholder="Search Entreprise" aria-label="Search">
+                    <input class="form-control" type="text" name="nom_entreprise" placeholder="Search Compagnies" aria-label="Search">
                 </form>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
