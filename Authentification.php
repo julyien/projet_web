@@ -73,11 +73,10 @@ if(!empty($_POST)){
 <div class="d"> <h2>Bienvenue sur JVPN veuillez vous connecter.</h2></div>
 <div class="container">
 <div class="row">
-<div class="col-7">
-<div class="mt-4">
-<div class=a>
+<div class="d mx-auto">
 <br>
 <h3 class="d">Identification</h3>
+<br>
 <form method = "post">
 <pre>
 <?php
@@ -87,7 +86,7 @@ if (isset($er_pseudo)){
     <?php
 }
 ?>
-Nom d'utilisateur: <input type="text" placeholder="identifiant" name="identifiant_profil" value="<?php if(isset($Pseudo)){ echo $Pseudo; }?>" required>
+Nom d'utilisateur:  <input type="text" placeholder="identifiant" name="identifiant_profil" value="<?php if(isset($Pseudo)){ echo $Pseudo; }?>" required>
 <?php
 if (isset($er_mdp)){
     ?>
@@ -95,21 +94,17 @@ if (isset($er_mdp)){
     <?php
 }
 ?>
-Mot de passe: <input type="password" placeholder="mot de passe" name="password_profil" value="<?php if(isset($mdp)){ echo $mdp; }?>" required>
-<input type="submit" name="connexion">
+Mot de passe:       <input type="password" placeholder="mot de passe" name="password_profil" value="<?php if(isset($mdp)){ echo $mdp; }?>" required>
+      <input type="submit" name="connexion">
 </pre>
 <br>
 </form>
 <a id="btn" href="mentions_legales.html">Mentions Légales</a>
 </div>
-</div>
-</div>
-<div class="col-5">
+<div class="mx-auto">
     <div class="d">
 <br><br>
 <img src="logo.png" alt="logo" width="260"/>
-</div>
-</div>
 </div>
 </div>
 
