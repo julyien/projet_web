@@ -96,7 +96,6 @@ $dbname = "projetweb";
     <?php 
     
     include('connexionDB.php'); 
-    session_start();
     $getidprofil = intval($_SESSION['id_profil']);
     
     
