@@ -14,13 +14,11 @@ if ( !empty($_POST)) {
     $NomError = null;
     $PrenomError = null;
     $PromoError = null;
-    $IdError = null;
     $PswError= null;
     $CentreError = null;
     $IdentifiantError = null;
     
     // keep track post values
-    //$id_profil = $_POST['id_profil'];
     $nom_profil = $_POST['nom_profil'];
     $prenom_profil = $_POST['prenom_profil'];
     $promotion_profil = $_POST['promotion_profil'];

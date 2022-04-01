@@ -25,6 +25,12 @@ if ( !empty($_POST)) {
         $q = $sql->prepare($dbh);
         $q->execute(array($nom_entreprise));
         $nom_entreprise = $q->fetchColumn();
+
+        if($nom_entreprise == false  ){
+            header('Location: GestionEntreprise.php?error=delete');
+            exit();
+        }
+
         $dbh = "DELETE FROM entreprise WHERE id_entreprise = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($nom_entreprise));

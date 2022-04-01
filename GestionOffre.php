@@ -121,6 +121,18 @@ $dbname = "projetweb";
         </div>
     </div>
     </div>
+    <?php 
+    if (array_key_exists("error",$_GET)){ 
+        switch ($_GET['error']){
+            case 'update':
+                echo '<div> <span class="text-danger">Impossible de modifier cette offre</span></div>';
+                break;
+            case 'delete':
+                echo '<div> <span class="text-danger">Impossible de supprimer cette offre</span></div>';
+                break;
+        }
+    }
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

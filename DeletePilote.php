@@ -25,6 +25,12 @@ if ( !empty($_POST)) {
         $q = $sql->prepare($dbh);
         $q->execute(array($identifiant_profil));
         $identifiant_profil = $q->fetchColumn();
+
+        if($identifiant_profil == false  ){
+            header('Location: GestionPilote.php?error=delete');
+            exit();
+        }
+
         $dbh = "DELETE FROM permission WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($identifiant_profil));

@@ -22,6 +22,11 @@ if ( !empty($_POST)) {
     // insert data
     if ($valid) {
         $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        if($id_offre == false  ){
+            header('Location: GestionOffre.php?error=delete');
+            exit();
+        }
         $dbh = "DELETE FROM se_situe WHERE id_offre = ?";    
         $q = $sql->prepare($dbh);
         $q->execute(array($id_offre));

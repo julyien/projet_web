@@ -11,7 +11,6 @@ if ( !empty($_GET['identifiant_profil'])) {
 
 if ( !empty($_POST)) {
     // keep track validation errors
-    //$IdError = null;
     $NomError = null;
     $PrenomError = null;
     $PromoError = null;
@@ -20,11 +19,10 @@ if ( !empty($_POST)) {
     $IdentifiantError = null;
     
     // keep track post values
-    //$id_profil = $_POST['id_profil'];
     $nom_profil = $_POST['nom_profil'];
     $prenom_profil = $_POST['prenom_profil'];
     $promotion_profil = $_POST['promotion_profil'];
-    //$identifiant_profil = $_POST['identifiant_profil'];
+    $identifiant_profil = $_POST['identifiant_profil'];
     $password_profil = $_POST['password_profil'];
     $nom_centre = $_POST['nom_centre'];
     
@@ -71,15 +69,16 @@ if ( !empty($_POST)) {
         $q->execute(array($nom_centre));
        $nom_centre = $q->fetchColumn();
 
-       //if($identifiant_profil == false  ){
-       // header('Location: GestionEtudiant.php?error=update');
-       // exit();
-       // }
-
         $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, password_profil = ?, id_centre = ? WHERE identifiant_profil = ? AND id_role = 2";
         $q = $sql->prepare($dbh);   
         $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $password_profil, $nom_centre,$identifiant_profil )); 
+        if($identifiant_profil == false  ){
+            header('Location: GestionEtudiant.php?error=update');
+            exit();
+            }
+        else{
         header('Location: GestionEtudiant.php');
+        }
     }
 }
 ?>
@@ -160,11 +159,6 @@ if ( !empty($_POST)) {
                             <?php if (!empty($CentreError)): ?>
                             <span class="help-inline"><?php echo $CentreError;?></span>
                             <?php endif;?>
-                        </div>
-                        <div class="control-group <?php echo !empty($IdentifiantError)?'error':'';?>">
-                            <?php if (!empty($IdError)): ?>
-                            <span class="help-inline"><?php echo $IdError;?></span>
-                            <?php endif; ?>
                         </div>
                         <div>
                             <button type="submit" class="btn btn-success">Update</button>
