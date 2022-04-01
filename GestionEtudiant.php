@@ -121,7 +121,14 @@ $dbname = "projetweb";
     </div>
     <?php 
     if (array_key_exists("error",$_GET)){ 
-    echo '<div> <span class="text-danger">Impossible de supprimer cet identifiant</span></div>';
+        switch ($_GET['error']){
+            case 'update':
+                echo '<div> <span class="text-danger">Impossible de modifier cet identifiant</span></div>';
+                break;
+            case 'delete':
+                echo '<div> <span class="text-danger">Impossible de supprimer cet identifiant</span></div>';
+                break;
+        }
     }
     ?>
 

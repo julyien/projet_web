@@ -8,6 +8,7 @@ if ( !empty($_POST)) {
     
     // keep track post values
     $identifiant_profil = $_POST['identifiant_profil'];
+    $id_role = $_POST['id_role'];
     
     // validate input
     $valid = true;
@@ -27,6 +28,10 @@ if ( !empty($_POST)) {
         $q->execute(array($identifiant_profil));
         $identifiant_profil = $q->fetchColumn();
 
+        if($identifiant_profil == false  ){
+            header('Location: GestionEtudiant.php?error=delete');
+            exit();
+        }
 
         $dbh = "DELETE FROM permission WHERE id_profil = ?";    
         $q = $sql->prepare($dbh);
@@ -41,7 +46,8 @@ if ( !empty($_POST)) {
         $q = $sql->prepare($dbh);
         $q->execute(array($identifiant_profil));
         
-        header('Location: GestionEtudiant');
+        header('Location: GestionEtudiant.php');
+
     }
 }
 
@@ -68,7 +74,7 @@ if ( !empty($_POST)) {
 
                     <form class="form-horizontal" method="post">
                         <div class="control-group <?php echo !empty($IdError)?'error':'';?>">
-                            <label class="control-label">Id Etudiant</label>
+                            <label class="control-label">Identifiant Etudiant</label>
                             <div class="controls">
                                 <input name="identifiant_profil" type="int"  placeholder="identifiant_profil" value="<?php echo !empty($identifiant_profil)?$identifiant_profil:'';?>">
                                 <?php if (!empty($IdError)): ?>

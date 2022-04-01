@@ -11,7 +11,7 @@ if ( !empty($_GET['identifiant_profil'])) {
 
 if ( !empty($_POST)) {
     // keep track validation errors
-    $IdError = null;
+    //$IdError = null;
     $NomError = null;
     $PrenomError = null;
     $PromoError = null;
@@ -30,11 +30,7 @@ if ( !empty($_POST)) {
     
     // validate input
     $valid = true;
-    
-    //if ($id_profil != 2 ) {
-    //    $IdError = "Ceci est la page pour modifier les informations des étudiants, le profil que vous essayez de changez n'en est pas un !";
-    //    $valid = false;
-    //}
+
     
     if (empty($nom_profil)) {
         $NomError = "Donner le nom du Profil";
@@ -74,6 +70,12 @@ if ( !empty($_POST)) {
         $q = $sql->prepare($dbh);
         $q->execute(array($nom_centre));
        $nom_centre = $q->fetchColumn();
+
+       //if($identifiant_profil == false  ){
+       // header('Location: GestionEtudiant.php?error=update');
+       // exit();
+       // }
+
         $dbh = "UPDATE `profil` SET nom_profil =  ?, prenom_profil = ?, promotion_profil = ?, password_profil = ?, id_centre = ? WHERE identifiant_profil = ? AND id_role = 2";
         $q = $sql->prepare($dbh);   
         $q->execute(array( $nom_profil,$prenom_profil,$promotion_profil, $password_profil, $nom_centre,$identifiant_profil )); 
@@ -101,7 +103,7 @@ if ( !empty($_POST)) {
                 </div>
                 <form class="form-horizontal" action="UpdateEtudiant.php?id_profil=<?php echo $id_profil?>" method="post">
                     <div class="control-group <?php echo !empty($IdentifiantError)?'error':'';?>">
-                        <label class="control-label">Identifiant Profil</label>
+                        <label class="control-label">Identifiant Etudiant</label>
                         <div class="controls">
                             <input type='text' name="identifiant_profil" id='identifiant_profil' class='form-control'
                             placeholder='Entrer identifiant' onkeyup="GetDetail(this.value)" value="<?php echo !empty($identifiant_profil)?$identifiant_profil:'';?>">

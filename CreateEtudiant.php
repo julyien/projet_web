@@ -65,6 +65,12 @@
         $q = $sql->prepare($dbh);
         $q->execute(array($nom_centre));
         $nom_centre = $q->fetchColumn();
+
+        if($identifiant_profil == false  ){
+            header('Location: GestionEtudiant.php?error=delete');
+            exit();
+        }
+        
         $dbh = "INSERT INTO profil (nom_profil,prenom_profil,promotion_profil, identifiant_profil, password_profil,id_centre, id_role) values(?, ?,?, ?, ?, ?, ?)  ";
         $q = $sql->prepare($dbh);
         $q->execute(array($nom_profil,$prenom_profil,$promotion_profil, $identifiant_profil, $password_profil,$nom_centre, $id_role));
