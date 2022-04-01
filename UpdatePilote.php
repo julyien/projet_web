@@ -31,11 +31,6 @@ if ( !empty($_POST)) {
     // validate input
     $valid = true;
     
-    // if (empty($id_profil)) {
-    //     $IdError = "Donner l'ID du Profil";
-    //     $valid = false;
-    // }
-    
     if (empty($nom_profil)) {
         $NomError = "Donner le nom du Profil";
         $valid = false;
@@ -101,13 +96,14 @@ if ( !empty($_POST)) {
                 </div>
                 <form class="form-horizontal" action="UpdatePilote.php?id_profil=<?php echo $id_profil?>" method="post">
                     <div class="control-group <?php echo !empty($IdentifiantError)?'error':'';?>">
-                    <label class="control-label">Identifiant Profil</label>
-                    <div class="controls">
-                        <input type='text' name="identifiant_profil" id='identifiant_profil' class='form-control'
-                        placeholder='Entrer identifiant'onkeyup="GetDetail(this.value)" value="<?php echo !empty($identifiant_profil)?$identifiant_profil:'';?>">
-                        <?php if (!empty($IdentifiantError)): ?>
-                        <span class="help-inline"><?php echo $IdentifiantError;?></span>
-                        <?php endif; ?>
+                        <label class="control-label">Identifiant Pilote</label>
+                        <div class="controls">
+                            <input type='text' name="identifiant_profil" id='identifiant_profil' class='form-control'
+                            placeholder='Entrer identifiant'onkeyup="GetDetail(this.value)" value="<?php echo !empty($identifiant_profil)?$identifiant_profil:'';?>">
+                            <?php if (!empty($IdentifiantError)): ?>
+                            <span class="help-inline"><?php echo $IdentifiantError;?></span>
+                            <?php endif; ?>
+                        </div>
                     </div>
                     <div class="control-group <?php echo !empty($NomError)?'error':'';?>">
                         <label class="control-label">Nom Profil</label> 
