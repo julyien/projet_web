@@ -2,12 +2,19 @@
   session_start(); 
   include('connexionDB.php'); 
 
-  if (isset($_SESSION['id_profil'])) {
+  if(!isset($_SESSION['id_profil'])){ 
+    header('Location: Authentification.php'); 
+    exit; 
+  }
+
+
         $getid = intval($_SESSION['id_profil']);
         
         $req = $DB->query("SELECT * FROM profil INNER JOIN centre_formation ON profil.id_centre = centre_formation.id_centre WHERE id_profil = ? ", array($getid));
         $row = $req->fetch();
-    }
+    
+
+     
 ?>
 <!DOCTYPE html>
 <html lang="en">
