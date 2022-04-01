@@ -1,5 +1,5 @@
 <?php
-
+include('Session.php'); 
 $nomError = null;
 if ( !empty($_GET['nom_entreprise'])) {
     $nom_entreprise = $_POST['nom_entreprise'];

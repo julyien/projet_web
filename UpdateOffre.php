@@ -1,5 +1,5 @@
 <?php
-
+include('Session.php'); 
 $id_offre = null;
 if ( !empty($_GET['id_offre'])) {
     $id_offre = $_POST['id_offre'];
