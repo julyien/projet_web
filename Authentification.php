@@ -107,6 +107,8 @@ Mot de passe:       <input type="password" placeholder="mot de passe" name="pass
 <img src="logo.png" alt="logo" width="260"/>
 </div>
 </div>
+</div>
+</div>
 
 
 <script>
