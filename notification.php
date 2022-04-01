@@ -18,7 +18,7 @@
 </head>
 <body>
 <?php
-
+include('Session.php'); 
 
 $server = "localhost";
 $username = "root";

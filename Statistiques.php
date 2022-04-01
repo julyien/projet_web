@@ -47,7 +47,8 @@
 
 <?php
 
-session_start();
+
+include('Session.php'); 
         $sql = "SELECT * FROM profil";
 ?>
 <div class="bg"></div>

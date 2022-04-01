@@ -1,5 +1,6 @@
 <?php
-  session_start(); 
+
+  include('Session.php'); 
   include('connexionDB.php'); 
 
     $getid = intval($_SESSION['id_profil']);

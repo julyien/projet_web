@@ -1,5 +1,5 @@
 <?php
- 
+ include('Session.php'); 
  $sql = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
 
  if ( !empty($_POST)) {

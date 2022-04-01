@@ -1,5 +1,7 @@
 <?php                                                                       // Cette page permet d'ajouter automatiquement les données des étudiants une fois que l'on a rentré l'indentifiant  
   
+  include('Session.php'); 
+
 $identifiant_profil = $_REQUEST['identifiant_profil'];
   
 $con = mysqli_connect("localhost", "root", "", "projetweb");

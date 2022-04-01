@@ -1,5 +1,5 @@
 <?php
-
+include('Session.php'); 
 function disconnect(){
     session_start();
     session_destroy();

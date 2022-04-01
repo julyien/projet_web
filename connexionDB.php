@@ -1,4 +1,5 @@
 <?php
+
   // Déclaration d'une nouvelle classe
   class connexionDB {
     private $host    = 'localhost';   // nom de l'host

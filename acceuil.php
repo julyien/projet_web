@@ -1,11 +1,8 @@
 <?php // Connection à la DataBase
-  session_start(); 
+  include('Session.php');  
   include('connexionDB.php'); 
 
-  if(!isset($_SESSION['id_profil'])){ 
-    header('Location: Authentification.php'); 
-    exit; 
-  }
+  
 
 
         $getid = intval($_SESSION['id_profil']);

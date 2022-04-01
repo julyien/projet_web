@@ -1,5 +1,6 @@
 <?php                                   // Cette page permet d'ajouter automatiquement les données des offres une fois que l'on a rentré l'id de l'offre
-  
+  include('Session.php'); 
+
 $id_offre = $_REQUEST['id_offre'];
   
 $con = mysqli_connect("localhost", "root", "", "projetweb");

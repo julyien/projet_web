@@ -1,5 +1,6 @@
 <?php
-session_start(); // start session
+include('Session.php'); 
+ // start session
 $getid = intval($_SESSION['id_role']);
 
 // do check

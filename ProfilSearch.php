@@ -1,6 +1,7 @@
 <?php
-  session_start(); 
+   include('Session.php'); 
   include('connexionDB.php'); 
+ 
 
     $getid = $_GET['id_profil'];
 
