@@ -125,7 +125,7 @@ $sql = 'SELECT * FROM `offre` INNER JOIN entreprise ON offre.id_entreprise = ent
 // On prépare la requête
 $req = $DB->query($sql);
 
-session_start();
+
 
 foreach ($req->fetchAll() as $row) {
 echo '<br>';
