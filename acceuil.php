@@ -1,4 +1,4 @@
-<?php
+<?php                                                                                           // Connection à la DataBase
   session_start(); 
   include('connexionDB.php'); 
 
@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="projet.css" rel="stylesheet" type="text/css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">                                                              // Pour le PWA
     <script>
         //if browser support service worker
         if ('serviceWorker' in navigator) {
@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <div class="bg"></div>
+    <div class="bg"></div>                                                                                          //Barre de navigation
     <nav class="navbar navbar-expand-md navbar-dark topnav">
         <div class="container-fluid">
             <a class="active" href="/acceuil.php"><img src="logo.png" alt="logo" width="70"></a>
@@ -78,13 +78,13 @@
     </nav>
     <br><br><br><br>
     <div class="d">
-        <h1>Bienvenue <?php echo $row['prenom_profil']; ?></h1>
+        <h1>Bienvenue <?php echo $row['prenom_profil']; ?></h1>                                                         // Permet de dire "Bienvenue" puis le prénom de la personne connectée
     </div>
     <br><br><br>
     <div class="d">
     <img src="logo.png" alt="logo" width="400">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
+</body>                                                                                                                    // La ligne au dessus permet de faire marcher le burger sur un mobile
 
 </html>
